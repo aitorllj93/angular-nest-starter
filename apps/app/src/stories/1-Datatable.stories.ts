@@ -17,16 +17,18 @@ export default {
 export const SimpleDatatable = () => ({
   title: 'Datatable',
   template: `
-    <ngx-datatable
-      class="material striped"
-      [rows]="rows"
-      [columns]="columns"
-      [columnMode]="columnMode"
-      [headerHeight]="50"
-      [footerHeight]="50"
-      [rowHeight]="50"
-      (activate)="activate($event)">
-    </ngx-datatable>
+    <div class="storybook-wrapper">
+      <ngx-datatable
+        class="material striped"
+        [rows]="rows"
+        [columns]="columns"
+        [columnMode]="columnMode"
+        [headerHeight]="50"
+        [footerHeight]="50"
+        [rowHeight]="50"
+        (activate)="activate($event)">
+      </ngx-datatable>
+    </div>
   `,
   props: {
     rows: object('Rows', [

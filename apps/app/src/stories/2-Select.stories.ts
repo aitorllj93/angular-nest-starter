@@ -16,11 +16,13 @@ export default {
 export const SimpleSelect = () => ({
   title: 'Select',
   template: `
-    <ng-select [items]="items"
-      bindLabel="name"
-      bindValue="id"
-      [(ngModel)]="selectedPersonId">
-    </ng-select>
+    <div class="storybook-wrapper">
+      <ng-select [items]="items"
+        bindLabel="name"
+        bindValue="id"
+        [(ngModel)]="selectedPersonId">
+      </ng-select>
+    </div>
   `,
   props: {
     items: object('Items', [
