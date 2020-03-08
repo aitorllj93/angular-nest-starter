@@ -31,7 +31,7 @@ export default create({
   // inputTextColor: 'black',
   // inputBorderRadius: 4,
 
-  // brandTitle: 'My custom storybook',
+  brandTitle: 'Angular + Nest Starter',
   // brandUrl: 'https://example.com',
-  // brandImage: 'https://placehold.it/350x150',
+  brandImage: 'https://raw.githubusercontent.com/d3v0ps/angular-nest-starter/master/apps/app/src/assets/brand.png',
 });

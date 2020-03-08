@@ -1,5 +1,9 @@
 # Angular Nest Starter
 
+<p align="center">
+  <img src="https://raw.githubusercontent.com/d3v0ps/angular-nest-starter/master/apps/app/src/assets/shield.png" width="200">
+</p>
+
 ## Development server
 
 ### storybook
