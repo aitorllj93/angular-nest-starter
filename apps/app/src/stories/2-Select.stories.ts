@@ -3,6 +3,7 @@ import { moduleMetadata } from '@storybook/angular';
 import { object, text } from '@storybook/addon-knobs';
 
 import { NgSelectModule } from '@ng-select/ng-select';
+import markdown from '@ng-select/ng-select/README.md';
 
 export default {
   title: 'Select',
@@ -46,6 +47,8 @@ export const SimpleSelect = () => ({
 SimpleSelect.story = {
   name: 'Simple Select',
   parameters: {
-    notes: 'Simple Select'
+    notes: {
+      'Developer README': markdown
+    }
   },
 };
