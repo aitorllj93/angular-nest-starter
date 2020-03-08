@@ -3,6 +3,12 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
+import {
+  MdcElevationModule,
+  MdcRippleModule,
+  MdcButtonModule
+} from '@angular-mdc/web';
+
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import { NgSelectModule } from '@ng-select/ng-select';
 
@@ -10,6 +16,11 @@ import { NgSelectModule } from '@ng-select/ng-select';
   imports: [
     CommonModule,
     FlexLayoutModule,
+
+    MdcElevationModule,
+    MdcRippleModule,
+    MdcButtonModule,
+
     NgxDatatableModule,
     NgSelectModule
   ],

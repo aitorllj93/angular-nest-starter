@@ -1,2 +1,6 @@
 
-@import "~@ng-select/ng-select/themes/material.theme.css";
+$primary: red !default;
+
+$ng-select-highlight: $primary !default;
+
+@import '~@ng-select/ng-select/scss/material.theme';

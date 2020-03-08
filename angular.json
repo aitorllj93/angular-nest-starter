@@ -23,6 +23,11 @@
             "aot": true,
             "assets": ["apps/app/src/favicon.ico", "apps/app/src/assets"],
             "styles": ["apps/app/src/styles.scss"],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "node_modules/"
+              ]
+            },
             "scripts": []
           },
           "configurations": {

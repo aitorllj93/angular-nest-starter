@@ -1,14 +1,27 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body {
-  width: 100%;
-  height: 100%;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-}
+$primary: #1d65ba;
+$secondary: #de0031;
+$white: #fff;
 
-@import './styles/components/datatable';
-@import './styles/components/select';
+@use './styles/layouts/body';
+@use './styles/layouts/storybook';
 
-@import './styles/layouts/storybook';
+
+@use '@material/theme' with (
+  $primary: $primary,
+  $secondary: $secondary,
+  $background: $white,
+);
+
+@use '@material/elevation/mdc-elevation';
+@use '@material/ripple/mdc-ripple';
+@use '@material/typography/mdc-typography';
+
+@use './styles/components/button';
+@use './styles/components/datatable';
+@use './styles/components/select' with (
+  $primary: $primary,
+);
+
+@use '@angular-mdc/theme/material';
