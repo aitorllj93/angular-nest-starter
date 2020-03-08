@@ -4,6 +4,19 @@
   <img src="https://raw.githubusercontent.com/d3v0ps/angular-nest-starter/master/apps/app/src/assets/shield.png" width="200">
 </p>
 
+Angular + NestJS Starter Kit
+
+Includes the following packages:
+
+| Package                 | Version |
+|-------------------------|---------|
+| Angular                 | 9.0.0   |
+| NestJS                  | 6.8.3   |
+| rxjs                    | 6.5.0   |
+| @storybook/angular      | 5.3.14  |
+| @swimlane/ngx-datatable | 16.0.3  |
+| @ng-select/ng-select    | 3.7.3   |
+
 ## Development server
 
 ### storybook
