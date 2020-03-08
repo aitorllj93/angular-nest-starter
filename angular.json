@@ -10,7 +10,7 @@
       },
       "root": "apps/app",
       "sourceRoot": "apps/app/src",
-      "prefix": "workspace",
+      "prefix": "app",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
