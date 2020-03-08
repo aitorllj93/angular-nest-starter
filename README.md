@@ -14,6 +14,8 @@ Includes the following packages:
 | NestJS                  | 6.8.3   |
 | rxjs                    | 6.5.0   |
 | @storybook/angular      | 5.3.14  |
+| @angular/cdk            | 9.1.1   |
+| @angular/flex-layout    | 9.0.0   |
 | @swimlane/ngx-datatable | 16.0.3  |
 | @ng-select/ng-select    | 3.7.3   |
 
