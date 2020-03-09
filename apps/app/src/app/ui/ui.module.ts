@@ -6,6 +6,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import {
   MdcElevationModule,
   MdcRippleModule,
+  MdcTypographyModule,
   MdcButtonModule
 } from '@angular-mdc/web';
 
@@ -19,6 +20,8 @@ import { NgSelectModule } from '@ng-select/ng-select';
 
     MdcElevationModule,
     MdcRippleModule,
+    MdcTypographyModule,
+
     MdcButtonModule,
 
     NgxDatatableModule,

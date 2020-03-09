@@ -6,13 +6,14 @@ import { object, select, number } from '@storybook/addon-knobs';
 import {
   MdcElevationModule,
   MdcRippleModule,
+  MdcTypographyModule
 } from '@angular-mdc/web';
 
 export default {
   title: 'Foundation',
   decorators: [
     moduleMetadata({
-      imports: [MdcElevationModule, MdcRippleModule],
+      imports: [MdcElevationModule, MdcRippleModule, MdcTypographyModule],
     }),
   ],
 };
@@ -54,27 +55,55 @@ Elevation.story = {
 
 export const Ripple = () => ({
   template: `
-  <div #rippleExample mdcRipple [attachTo]="demodiv">
-    <div style="height: 100px; width: 100px; background: white; text-align: center; display: inline-block; margin: 10px;" #demodiv>
-      Click me
-    </div>
-  </div>
+    <div class="storybook-wrapper">
+      <div #rippleExample mdcRipple [attachTo]="demodiv">
+        <div style="height: 100px; width: 100px; background: white; text-align: center; display: inline-block; margin: 10px;" #demodiv>
+          Click me
+        </div>
+      </div>
 
-  <div mdcRipple [attachTo]="demoPrimary" primary>
-    <div style="height: 100px; width: 100px; background: white; text-align: center; display: inline-block; margin: 10px;"  #demoPrimary>
-      Primary Color
-    </div>
-  </div>
+      <div mdcRipple [attachTo]="demoPrimary" primary>
+        <div style="height: 100px; width: 100px; background: white; text-align: center; display: inline-block; margin: 10px;"  #demoPrimary>
+          Primary Color
+        </div>
+      </div>
 
-  <div mdcRipple [attachTo]="demoSecondary" secondary>
-    <div style="height: 100px; width: 100px; background: white; text-align: center; display: inline-block; margin: 10px;"  #demoSecondary>
-      Secondary Color
+      <div mdcRipple [attachTo]="demoSecondary" secondary>
+        <div style="height: 100px; width: 100px; background: white; text-align: center; display: inline-block; margin: 10px;"  #demoSecondary>
+          Secondary Color
+        </div>
+      </div>
     </div>
-  </div>
-
   `
 });
 
 Ripple.story = {
   name: 'Ripple',
+};
+
+export const Typography = () => ({
+  template: `
+    <div class="storybook-wrapper">
+      <div mdcHeadline1>Headline 1</div>
+      <div mdcHeadline2>Headline 2</div>
+      <div mdcHeadline3>Headline 3</div>
+      <div mdcHeadline4>Headline 4</div>
+      <div mdcHeadline5>Headline 5</div>
+      <div mdcHeadline6>Headline 6</div>
+
+      <div mdcSubtitle1>Subtitle 1</div>
+      <div mdcSubtitle2>Subtitle 2</div>
+
+      <div mdcBody1>Body 1</div>
+      <div mdcBody2>Body 2</div>
+
+      <div mdcButton>Button text</div>
+      <div mdcCaption>Caption text</div>
+      <div mdcOverline>Overline text</div>
+    </div>
+  `
+});
+
+Typography.story = {
+  name: 'Typography',
 };

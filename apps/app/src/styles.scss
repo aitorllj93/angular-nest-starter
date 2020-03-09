@@ -18,6 +18,9 @@ $white: #fff;
 @use '@material/ripple/mdc-ripple';
 @use '@material/typography/mdc-typography';
 
+@use '@material/card/mdc-card';
+
+
 @use './styles/components/button';
 @use './styles/components/datatable';
 @use './styles/components/select' with (
