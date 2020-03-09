@@ -7,7 +7,9 @@ import {
   MdcElevationModule,
   MdcRippleModule,
   MdcTypographyModule,
-  MdcButtonModule
+  MdcButtonModule,
+  MdcIconButtonModule,
+  MdcCardModule
 } from '@angular-mdc/web';
 
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
@@ -23,6 +25,8 @@ import { NgSelectModule } from '@ng-select/ng-select';
     MdcTypographyModule,
 
     MdcButtonModule,
+    MdcIconButtonModule,
+    MdcCardModule,
 
     NgxDatatableModule,
     NgSelectModule
