@@ -20,6 +20,7 @@ $white: #fff;
 
 @use './styles/components/button';
 @use './styles/components/card';
+@use './styles/components/list';
 @use './styles/components/datatable';
 @use './styles/components/select' with (
   $primary: $primary,
