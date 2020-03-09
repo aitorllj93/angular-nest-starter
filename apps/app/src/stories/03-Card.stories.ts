@@ -5,7 +5,11 @@ import { moduleMetadata } from '@storybook/angular';
 import {
   MdcTypographyModule,
   MdcIconButtonModule,
-  MdcCardModule
+  MdcCardModule,
+  MdcIconRegistry,
+  MdcButtonModule,
+  MdcListModule,
+  MdcRippleModule
 } from '@angular-mdc/web';
 
 export default {
@@ -14,8 +18,14 @@ export default {
     moduleMetadata({
       imports: [
         MdcTypographyModule,
+        MdcButtonModule,
         MdcIconButtonModule,
+        MdcListModule,
+        MdcRippleModule,
         MdcCardModule
+      ],
+      providers: [
+        MdcIconRegistry
       ]
     }),
   ],
