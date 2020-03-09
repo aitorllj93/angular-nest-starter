@@ -20,6 +20,16 @@ Includes the following packages:
 | @swimlane/ngx-datatable | 16.0.3  |
 | @ng-select/ng-select    | 3.7.3   |
 
+## Features
+
+### UI Module + Storybook
+
+Includes `angular-mdc`, `ngx-datatable` & `ng-select`
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/d3v0ps/angular-nest-starter/master/apps/app/src/assets/storybook.png" width="600">
+</p>
+
 ## Development server
 
 ### storybook
