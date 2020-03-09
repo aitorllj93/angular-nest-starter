@@ -32,13 +32,13 @@ export const ButtonStyles = () => ({
 
       <button style="margin: 10px;" mdc-button outlined>Outlined</button>
 
-      <button style="margin: 10px;" mdc-button outlined class="demo-thick-outline-button">Thick Outlined</button>
+      <button style="margin: 10px;" mdc-button outlined class="thick-outline-button">Thick Outlined</button>
 
       <button style="margin: 10px;" mdc-button disabled>Disabled</button>
 
-      <button style="margin: 10px;" mdc-button class="demo-button-primary">Primary Color</button>
+      <button style="margin: 10px;" mdc-button class="button-primary">Primary Color</button>
 
-      <button style="margin: 10px;" mdc-button class="demo-button-secondary">Secondary Color</button>
+      <button style="margin: 10px;" mdc-button class="button-secondary">Secondary Color</button>
     </div>
   `
 });
@@ -50,11 +50,11 @@ ButtonStyles.story = {
 export const ButtonDensity = () => ({
   template: `
     <div class="storybook-wrapper">
-      <button style="margin: 10px;" mdc-button class="demo-density-button">Density (-3)</button>
+      <button style="margin: 10px;" mdc-button class="density-button">Density (-3)</button>
 
-      <button style="margin: 10px;" mdc-button raised class="demo-density-button">Density (-3)</button>
+      <button style="margin: 10px;" mdc-button raised class="density-button">Density (-3)</button>
 
-      <button style="margin: 10px;" mdc-button outlined class="demo-density-button">Density (-3)</button>
+      <button style="margin: 10px;" mdc-button outlined class="density-button">Density (-3)</button>
     </div>
   `
 });
@@ -74,11 +74,11 @@ export const ButtonIcons = () => ({
         <mdc-icon>favorite</mdc-icon>Icon
       </button>
 
-      <button style="margin: 10px;" mdc-button raised class="demo-button-primary">
+      <button style="margin: 10px;" mdc-button raised class="button-primary">
         <mdc-icon>favorite</mdc-icon>Icon
       </button>
 
-      <button style="margin: 10px;" mdc-button raised class="demo-button-secondary">
+      <button style="margin: 10px;" mdc-button raised class="button-secondary">
         <mdc-icon>favorite</mdc-icon>Icon
       </button>
 
@@ -100,7 +100,7 @@ export const ButtonIcons = () => ({
         <mdc-icon>favorite</mdc-icon>
       </button>
 
-      <button style="margin: 10px;" mdc-button raised class="demo-button-primary">
+      <button style="margin: 10px;" mdc-button raised class="button-primary">
         <mdc-button-label>Trailing Icon</mdc-button-label>
         <mdc-icon>favorite</mdc-icon>
       </button>
@@ -119,11 +119,11 @@ ButtonIcons.story = {
 export const ButtonThemes = () => ({
   template: `
     <div class="storybook-wrapper">
-      <button style="margin: 10px;" mdc-button unelevated class="demo-button-ink-color">
+      <button style="margin: 10px;" mdc-button unelevated class="button-ink-color">
         <mdc-icon>favorite</mdc-icon>Ink Color
       </button>
 
-      <button style="margin: 10px;" mdc-button outlined class="demo-button-icon-color">
+      <button style="margin: 10px;" mdc-button outlined class="button-icon-color">
         <mdc-icon>favorite</mdc-icon>Icon Color
       </button>
     </div>
