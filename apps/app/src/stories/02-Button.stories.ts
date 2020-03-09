@@ -149,17 +149,3 @@ export const ButtonShaped = () => ({
 ButtonShaped.story = {
   name: 'Button Shaped'
 };
-
-export const ButtonAccesibility = () => ({
-  template: `
-    <div class="storybook-wrapper">
-      <div class="mdc-touch-target-wrapper">
-        <button mdc-button touch>My Accessible Button</button>
-      </div>
-    </div>
-  `
-});
-
-ButtonAccesibility.story = {
-  name: 'Button Accesibility'
-};
