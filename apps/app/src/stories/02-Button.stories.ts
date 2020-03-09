@@ -2,14 +2,17 @@
 import { moduleMetadata } from '@storybook/angular';
 
 import {
-  MdcButtonModule
+  MdcButtonModule,
+  MdcIconModule,
+  MdcIconRegistry,
 } from '@angular-mdc/web';
 
 export default {
   title: 'Button',
   decorators: [
     moduleMetadata({
-      imports: [MdcButtonModule],
+      imports: [MdcIconModule, MdcButtonModule],
+      providers: [MdcIconRegistry]
     }),
   ],
 };
