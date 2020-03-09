@@ -22,8 +22,6 @@ $white: #fff;
 @use './styles/components/card';
 @use './styles/components/list';
 @use './styles/components/datatable';
-@use './styles/components/select' with (
-  $primary: $primary,
-);
+@use './styles/components/select';
 
 @use '@angular-mdc/theme/material';

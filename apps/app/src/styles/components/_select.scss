@@ -1,6 +1,6 @@
 
-$primary: red !default;
+@use '@material/theme';
 
-$ng-select-highlight: $primary !default;
+$ng-select-highlight: theme.$primary !default;
 
 @import '~@ng-select/ng-select/scss/material.theme';
