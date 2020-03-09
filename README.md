@@ -16,6 +16,7 @@ Includes the following packages:
 | @storybook/angular      | 5.3.14  |
 | @angular/cdk            | 9.1.1   |
 | @angular/flex-layout    | 9.0.0   |
+| @angular-mdc/web        | 5.1.1   |
 | @swimlane/ngx-datatable | 16.0.3  |
 | @ng-select/ng-select    | 3.7.3   |
 
