@@ -10,15 +10,15 @@ Includes the following packages:
 
 | Package                 | Version |
 |-------------------------|---------|
-| Angular                 | 9.0.0   |
-| NestJS                  | 6.8.3   |
-| rxjs                    | 6.5.0   |
-| @storybook/angular      | 5.3.14  |
-| @angular/cdk            | 9.1.1   |
-| @angular/flex-layout    | 9.0.0   |
-| @angular-mdc/web        | 5.1.1   |
-| @swimlane/ngx-datatable | 16.0.3  |
-| @ng-select/ng-select    | 3.7.3   |
+| [Angular](https://angular.io/)                 | 9.0.0   |
+| [NestJS](https://nestjs.com/)                  | 6.8.3   |
+| [rxjs](https://rxjs.dev/)                    | 6.5.0   |
+| [@storybook/angular](https://storybook.js.org/)      | 5.3.14  |
+| [@angular/cdk](https://material.angular.io/cdk/categories)            | 9.1.1   |
+| [@angular/flex-layout](https://github.com/angular/flex-layout)    | 9.0.0   |
+| [@angular-mdc/web](https://trimox.github.io/angular-mdc-web)      | 5.1.1   |
+| [@swimlane/ngx-datatable](https://swimlane.gitbook.io/ngx-datatable/) | 16.0.3  |
+| [@ng-select/ng-select](https://ng-select.github.io/)    | 3.7.3   |
 
 ## Features
 
