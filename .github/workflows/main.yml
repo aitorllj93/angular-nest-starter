@@ -20,7 +20,7 @@ jobs:
         run: npm run build-storybook
 
       - name: Publish to GH Pages Branch
-        uses: s0/git-publish-subdir-action@2.1.0
+        uses: s0/git-publish-subdir-action@master
         env:
           REPO: self
           BRANCH: gh-pages
