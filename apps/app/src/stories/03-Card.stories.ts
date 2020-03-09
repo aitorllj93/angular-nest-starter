@@ -111,3 +111,87 @@ export const CardList = () => ({
 CardList.story = {
   name: 'List Card'
 }
+
+
+export const CardPhoto = () => ({
+  template: `
+    <div class="storybook-wrapper">
+      <mdc-card class="demo-card demo-card--photo">
+        <mdc-card-primary-action>
+          <mdc-card-media square class="demo-card__media">
+            <mdc-card-media-content class="demo-card__media-content--with-title">
+              <div class="demo-card__media-title" mdcSubtitle2>Vacation Photos</div>
+            </mdc-card-media-content>
+          </mdc-card-media>
+        </mdc-card-primary-action>
+        <mdc-card-actions>
+          <mdc-card-action-icons>
+            <button mdcIconButton mdcCardAction="icon">
+              <mdc-icon mdcIconOn>favorite</mdc-icon>
+              <mdc-icon>favorite_border</mdc-icon>
+            </button>
+            <button mdcIconButton mdcCardAction="icon">
+              <mdc-icon mdcIconOn>bookmark</mdc-icon>
+              <mdc-icon>bookmark_border</mdc-icon>
+            </button>
+            <button mdcIconButton mdcCardAction="icon" icon="share"></button>
+          </mdc-card-action-icons>
+        </mdc-card-actions>
+      </mdc-card>
+    </div>
+  `
+});
+
+CardPhoto.story = {
+  name: 'Photo Card'
+};
+
+
+export const CardMusic = () => ({
+  template: `
+    <div class="storybook-wrapper">
+      <mdc-card class="demo-card demo-card--music">
+        <mdc-card-primary-action>
+          <div class="demo-card__music-row">
+            <mdc-card-media square class="demo-card__media demo-card__media--music"></mdc-card-media>
+            <div class="demo-card__music-info">
+              <div class="demo-card__music-title" mdcHeadline5>Title</div>
+              <div class="demo-card__music-artist" mdcBody2>Under the Grave</div>
+              <div class="demo-card__music-year" mdcBody2>(2016)</div>
+            </div>
+          </div>
+        </mdc-card-primary-action>
+        <mdc-list-divider></mdc-list-divider>
+        <mdc-card-actions>
+          <mdc-card-action-buttons class="demo-card__action-buttons--text-only">Rate album</mdc-card-action-buttons>
+          <mdc-card-action-icons>
+            <button mdcIconButton mdcCardAction="icon">
+              <mdc-icon mdcIconOn>star</mdc-icon>
+              <mdc-icon>star_border</mdc-icon>
+            </button>
+            <button mdcIconButton mdcCardAction="icon">
+              <mdc-icon mdcIconOn>star</mdc-icon>
+              <mdc-icon>star_border</mdc-icon>
+            </button>
+            <button mdcIconButton mdcCardAction="icon">
+              <mdc-icon mdcIconOn>star</mdc-icon>
+              <mdc-icon>star_border</mdc-icon>
+            </button>
+            <button mdcIconButton mdcCardAction="icon">
+              <mdc-icon mdcIconOn>star</mdc-icon>
+              <mdc-icon>star_border</mdc-icon>
+            </button>
+            <button mdcIconButton mdcCardAction="icon">
+              <mdc-icon mdcIconOn>star</mdc-icon>
+              <mdc-icon>star_border</mdc-icon>
+            </button>
+          </mdc-card-action-icons>
+        </mdc-card-actions>
+      </mdc-card>
+    </div>
+  `
+});
+
+CardMusic.story = {
+  name: 'Music Card'
+};
