@@ -26,6 +26,8 @@ Includes the following packages:
 
 Includes `angular-mdc`, `ngx-datatable` & `ng-select`
 
+[Storybook Demo](https://d3v0ps.github.io/angular-nest-starter/)
+
 <p align="center">
   <img src="https://raw.githubusercontent.com/d3v0ps/angular-nest-starter/master/apps/app/src/assets/storybook.png" width="600">
 </p>
