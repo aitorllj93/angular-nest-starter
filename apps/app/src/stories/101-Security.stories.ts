@@ -41,3 +41,20 @@ export const LoginForm = () => ({
 LoginForm.story = {
   name: 'Login Form'
 };
+
+export const ForgotPasswordForm = () => ({
+  template: `
+    <div class="storybook-wrapper">
+      <app-forgot-password-form
+        (submitForm)="submitForm($event)">
+      </app-forgot-password-form>
+    </div>
+  `,
+  props: {
+    submitForm: action('On Submit Form')
+  }
+});
+
+ForgotPasswordForm.story = {
+  name: 'Forgot Password Form'
+};
