@@ -7,7 +7,7 @@ import {
 } from '@angular-mdc/web';
 
 export default {
-  title: 'Checkbox',
+  title: 'UI - Checkbox',
   decorators: [
     moduleMetadata({
       imports: [

@@ -7,7 +7,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import markdown from '@angular/flex-layout/README.md';
 
 export default {
-  title: 'Layout',
+  title: 'UI - Layout',
   decorators: [
     moduleMetadata({
       imports: [FlexLayoutModule],

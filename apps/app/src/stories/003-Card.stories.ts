@@ -13,7 +13,7 @@ import {
 } from '@angular-mdc/web';
 
 export default {
-  title: 'Card',
+  title: 'UI - Card',
   decorators: [
     moduleMetadata({
       imports: [
@@ -52,11 +52,15 @@ export const Card = () => ({
           </mdc-card-action-buttons>
           <mdc-card-action-icons>
             <button mdcIconButton mdcCardAction="icon">
-              <mdc-icon mdcIconOn>favorite</mdc-icon>
-              <mdc-icon>favorite_border</mdc-icon>
+              <mdc-icon mdcIconOn fontSet="mdi" fontIcon="mdi-heart"></mdc-icon>
+              <mdc-icon fontSet="mdi" fontIcon="mdi-heart-outline"></mdc-icon>
             </button>
-            <button mdcIconButton mdcCardAction="icon" icon="share"></button>
-            <button mdcIconButton mdcCardAction="icon" icon="more_vert"></button>
+            <button mdcIconButton mdcCardAction="icon">
+              <mdc-icon fontSet="mdi" fontIcon="mdi-share"></mdc-icon>
+            </button>
+            <button mdcIconButton mdcCardAction="icon">
+              <mdc-icon fontSet="mdi" fontIcon="mdi-dots-vertical"></mdc-icon>
+            </button>
           </mdc-card-action-icons>
         </mdc-card-actions>
       </mdc-card>
@@ -100,7 +104,7 @@ export const CardList = () => ({
         <mdc-card-actions fullBleed>
           <button mdc-button mdcCardAction="button">
             All Business Headlines
-            <mdc-icon>arrow_forward</mdc-icon>
+            <mdc-icon fontSet="mdi" fontIcon="mdi-arrow-right"></mdc-icon>
           </button>
         </mdc-card-actions>
       </mdc-card>
@@ -127,14 +131,16 @@ export const CardPhoto = () => ({
         <mdc-card-actions>
           <mdc-card-action-icons>
             <button mdcIconButton mdcCardAction="icon">
-              <mdc-icon mdcIconOn>favorite</mdc-icon>
-              <mdc-icon>favorite_border</mdc-icon>
+              <mdc-icon mdcIconOn fontSet="mdi" fontIcon="mdi-heart"></mdc-icon>
+              <mdc-icon fontSet="mdi" fontIcon="mdi-heart-outline"></mdc-icon>
             </button>
             <button mdcIconButton mdcCardAction="icon">
-              <mdc-icon mdcIconOn>bookmark</mdc-icon>
-              <mdc-icon>bookmark_border</mdc-icon>
+              <mdc-icon mdcIconOn fontSet="mdi" fontIcon="mdi-bookmark"></mdc-icon>
+              <mdc-icon fontSet="mdi" fontIcon="mdi-bookmark-outline"></mdc-icon>
             </button>
-            <button mdcIconButton mdcCardAction="icon" icon="share"></button>
+            <button mdcIconButton mdcCardAction="icon">
+              <mdc-icon fontSet="mdi" fontIcon="mdi-share"></mdc-icon>
+            </button>
           </mdc-card-action-icons>
         </mdc-card-actions>
       </mdc-card>
@@ -166,24 +172,24 @@ export const CardMusic = () => ({
           <mdc-card-action-buttons class="demo-card__action-buttons--text-only">Rate album</mdc-card-action-buttons>
           <mdc-card-action-icons>
             <button mdcIconButton mdcCardAction="icon">
-              <mdc-icon mdcIconOn>star</mdc-icon>
-              <mdc-icon>star_border</mdc-icon>
+              <mdc-icon mdcIconOn fontSet="mdi" fontIcon="mdi-star"></mdc-icon>
+              <mdc-icon fontSet="mdi" fontIcon="mdi-star-outline"></mdc-icon>
             </button>
             <button mdcIconButton mdcCardAction="icon">
-              <mdc-icon mdcIconOn>star</mdc-icon>
-              <mdc-icon>star_border</mdc-icon>
+              <mdc-icon mdcIconOn fontSet="mdi" fontIcon="mdi-star"></mdc-icon>
+              <mdc-icon fontSet="mdi" fontIcon="mdi-star-outline"></mdc-icon>
             </button>
             <button mdcIconButton mdcCardAction="icon">
-              <mdc-icon mdcIconOn>star</mdc-icon>
-              <mdc-icon>star_border</mdc-icon>
+              <mdc-icon mdcIconOn fontSet="mdi" fontIcon="mdi-star"></mdc-icon>
+              <mdc-icon fontSet="mdi" fontIcon="mdi-star-outline"></mdc-icon>
             </button>
             <button mdcIconButton mdcCardAction="icon">
-              <mdc-icon mdcIconOn>star</mdc-icon>
-              <mdc-icon>star_border</mdc-icon>
+              <mdc-icon mdcIconOn fontSet="mdi" fontIcon="mdi-star"></mdc-icon>
+              <mdc-icon fontSet="mdi" fontIcon="mdi-star-outline"></mdc-icon>
             </button>
             <button mdcIconButton mdcCardAction="icon">
-              <mdc-icon mdcIconOn>star</mdc-icon>
-              <mdc-icon>star_border</mdc-icon>
+              <mdc-icon mdcIconOn fontSet="mdi" fontIcon="mdi-star"></mdc-icon>
+              <mdc-icon fontSet="mdi" fontIcon="mdi-star-outline"></mdc-icon>
             </button>
           </mdc-card-action-icons>
         </mdc-card-actions>

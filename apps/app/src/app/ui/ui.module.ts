@@ -9,15 +9,20 @@ import {
   MdcTypographyModule,
   MdcButtonModule,
   MdcIconButtonModule,
-  MdcCardModule
+  MdcCardModule,
+  MdcFormFieldModule,
+  MdcTextFieldModule
 } from '@angular-mdc/web';
 
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import { NgSelectModule } from '@ng-select/ng-select';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
     CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
     FlexLayoutModule,
 
     MdcElevationModule,
@@ -27,12 +32,28 @@ import { NgSelectModule } from '@ng-select/ng-select';
     MdcButtonModule,
     MdcIconButtonModule,
     MdcCardModule,
+    MdcFormFieldModule,
+    MdcTextFieldModule,
 
     NgxDatatableModule,
     NgSelectModule
   ],
   exports: [
     CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
+    FlexLayoutModule,
+
+    MdcElevationModule,
+    MdcRippleModule,
+    MdcTypographyModule,
+
+    MdcButtonModule,
+    MdcIconButtonModule,
+    MdcCardModule,
+    MdcFormFieldModule,
+    MdcTextFieldModule,
+
     NgxDatatableModule,
     NgSelectModule
   ],

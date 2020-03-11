@@ -4,7 +4,7 @@ import { object } from '@storybook/addon-knobs';
 
 
 export default {
-  title: 'Drawer',
+  title: 'UI - Drawer',
   decorators: [
     moduleMetadata({
       imports: [MdcListModule, MdcIconModule, MdcDrawerModule],
@@ -21,25 +21,25 @@ export const Drawer = () => ({
         <mdc-drawer-content>
           <mdc-list>
             <a mdc-list-item *ngFor="let item of destinations" href="#/drawer-demo/examples" [activated]="item.activated">
-              <mdc-icon mdcListItemGraphic *ngIf="item.icon">{{item.icon}}</mdc-icon>{{item.label}}
+              <mdc-icon mdcListItemGraphic *ngIf="item.icon" fontSet="mdi" fontIcon="mdi-{{item.icon}}"></mdc-icon>{{item.label}}
             </a>
             <mdc-list-divider></mdc-list-divider>
             <h6 mdcListGroupSubheader>Labels</h6>
             <a mdc-list-item href="#/drawer-demo/examples">
-              <mdc-icon mdcListItemGraphic>bookmark</mdc-icon>Family
+              <mdc-icon mdcListItemGraphic fontSet="mdi" fontIcon="mdi-bookmark"></mdc-icon>Family
             </a>
             <a mdc-list-item href="#/drawer-demo/examples">
-              <mdc-icon mdcListItemGraphic>bookmark</mdc-icon>Friends
+              <mdc-icon mdcListItemGraphic fontSet="mdi" fontIcon="mdi-bookmark"></mdc-icon>Friends
             </a>
             <a mdc-list-item href="#/drawer-demo/examples">
-              <mdc-icon mdcListItemGraphic>bookmark</mdc-icon>Work
+              <mdc-icon mdcListItemGraphic fontSet="mdi" fontIcon="mdi-bookmark"></mdc-icon>Work
             </a>
             <mdc-list-divider></mdc-list-divider>
             <a mdc-list-item href="#/drawer-demo/examples">
-              <mdc-icon mdcListItemGraphic>settings</mdc-icon>Settings
+              <mdc-icon mdcListItemGraphic fontSet="mdi" fontIcon="mdi-bookmark"></mdc-icon>Settings
             </a>
             <a mdc-list-item href="#/drawer-demo/examples">
-              <mdc-icon mdcListItemGraphic>announcement</mdc-icon>Help & feedback
+              <mdc-icon mdcListItemGraphic fontSet="mdi" fontIcon="mdi-message-alert"></mdc-icon>Help & feedback
             </a>
           </mdc-list>
         </mdc-drawer-content>
@@ -51,7 +51,7 @@ export const Drawer = () => ({
       { label: 'Inbox', icon: 'inbox', activated: true },
       { label: 'Star', icon: 'star', activated: false },
       { label: 'Sent Mail', icon: 'send', activated: false },
-      { label: 'Drafts', icon: 'drafts', activated: false }
+      { label: 'Drafts', icon: 'email-open', activated: false }
     ])
   }
 })

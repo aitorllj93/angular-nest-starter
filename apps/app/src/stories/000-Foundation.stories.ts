@@ -10,7 +10,7 @@ import {
 } from '@angular-mdc/web';
 
 export default {
-  title: 'Foundation',
+  title: 'UI - Foundation',
   decorators: [
     moduleMetadata({
       imports: [MdcElevationModule, MdcRippleModule, MdcTypographyModule],

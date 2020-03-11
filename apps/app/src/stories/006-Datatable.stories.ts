@@ -7,7 +7,7 @@ import { NgxDatatableModule, ColumnMode } from '@swimlane/ngx-datatable';
 import markdown from '@swimlane/ngx-datatable/README.md';
 
 export default {
-  title: 'Datatable',
+  title: 'UI - Datatable',
   decorators: [
     moduleMetadata({
       imports: [NgxDatatableModule],

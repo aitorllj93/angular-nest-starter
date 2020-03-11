@@ -8,7 +8,7 @@ import {
 } from '@angular-mdc/web';
 
 export default {
-  title: 'Button',
+  title: 'UI - Button',
   decorators: [
     moduleMetadata({
       imports: [MdcIconModule, MdcButtonModule],
@@ -67,19 +67,19 @@ export const ButtonIcons = () => ({
   template: `
     <div class="storybook-wrapper">
       <button style="margin: 10px;" mdc-button>
-        <mdc-icon>favorite</mdc-icon>Icon
+        <mdc-icon fontSet="mdi" fontIcon="mdi-heart"></mdc-icon>Icon
       </button>
 
       <button style="margin: 10px;" mdc-button outlined>
-        <mdc-icon>favorite</mdc-icon>Icon
+        <mdc-icon fontSet="mdi" fontIcon="mdi-heart"></mdc-icon>Icon
       </button>
 
       <button style="margin: 10px;" mdc-button raised class="button-primary">
-        <mdc-icon>favorite</mdc-icon>Icon
+        <mdc-icon fontSet="mdi" fontIcon="mdi-heart"></mdc-icon>Icon
       </button>
 
       <button style="margin: 10px;" mdc-button raised class="button-secondary">
-        <mdc-icon>favorite</mdc-icon>Icon
+        <mdc-icon fontSet="mdi" fontIcon="mdi-heart"></mdc-icon>Icon
       </button>
 
       <button style="margin: 10px;" mdc-button raised>
@@ -97,16 +97,16 @@ export const ButtonIcons = () => ({
 
       <button style="margin: 10px;" mdc-button>
         <span mdcButtonLabel>Trailing Icon</span>
-        <mdc-icon>favorite</mdc-icon>
+        <mdc-icon fontSet="mdi" fontIcon="mdi-heart"></mdc-icon>
       </button>
 
       <button style="margin: 10px;" mdc-button raised class="button-primary">
         <mdc-button-label>Trailing Icon</mdc-button-label>
-        <mdc-icon>favorite</mdc-icon>
+        <mdc-icon fontSet="mdi" fontIcon="mdi-heart"></mdc-icon>
       </button>
 
       <button style="margin: 10px;" mdc-button outlined label="Trailing Icon">
-        <mdc-icon>favorite</mdc-icon>
+        <mdc-icon fontSet="mdi" fontIcon="mdi-heart"></mdc-icon>
       </button>
     </div>
   `
@@ -120,11 +120,11 @@ export const ButtonThemes = () => ({
   template: `
     <div class="storybook-wrapper">
       <button style="margin: 10px;" mdc-button unelevated class="button-ink-color">
-        <mdc-icon>favorite</mdc-icon>Ink Color
+        <mdc-icon fontSet="mdi" fontIcon="mdi-heart"></mdc-icon>Ink Color
       </button>
 
       <button style="margin: 10px;" mdc-button outlined class="button-icon-color">
-        <mdc-icon>favorite</mdc-icon>Icon Color
+        <mdc-icon fontSet="mdi" fontIcon="mdi-heart"></mdc-icon>Icon Color
       </button>
     </div>
   `
@@ -140,7 +140,7 @@ export const ButtonShaped = () => ({
       <button style="margin: 10px;" mdc-button unelevated class="big-round-shape-button">Corner Radius</button>
 
       <button style="margin: 10px;" mdc-button raised class="big-round-shape-button">
-        <mdc-icon>favorite</mdc-icon>Icon
+        <mdc-icon fontSet="mdi" fontIcon="mdi-heart"></mdc-icon>Icon
       </button>
     </div>
   `

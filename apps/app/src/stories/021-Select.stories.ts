@@ -6,7 +6,7 @@ import { NgSelectModule } from '@ng-select/ng-select';
 import markdown from '@ng-select/ng-select/README.md';
 
 export default {
-  title: 'Select',
+  title: 'UI - Select',
   decorators: [
     moduleMetadata({
       imports: [NgSelectModule],

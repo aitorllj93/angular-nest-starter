@@ -5,16 +5,17 @@ import { moduleMetadata } from '@storybook/angular';
 import { action } from '@storybook/addon-actions';
 
 import {
-  MdcChipsModule, MdcIconRegistry
+  MdcChipsModule, MdcIconRegistry, MdcIconModule
 } from '@angular-mdc/web';
 import { object, text } from '@storybook/addon-knobs';
 
 export default {
-  title: 'Chips',
+  title: 'UI - Chips',
   decorators: [
     moduleMetadata({
       imports: [
-        MdcChipsModule
+        MdcChipsModule,
+        MdcIconModule,
       ],
       providers: [
         MdcIconRegistry
@@ -29,7 +30,9 @@ export const Chips = () => ({
     <div class="storybook-wrapper">
       <mdc-chip-set>
         <mdc-chip>
-          <mdc-chip-icon leading>face</mdc-chip-icon>
+          <mdc-chip-icon leading>
+            <mdc-icon fontSet="mdi" fontIcon="mdi-face"></mdc-icon>
+          </mdc-chip-icon>
           <mdc-chip-text>Jane Smith</mdc-chip-text>
         </mdc-chip>
       </mdc-chip-set>
@@ -47,20 +50,36 @@ export const ChipsInput = () => ({
   <div class="storybook-wrapper">
     <mdc-chip-set input>
       <mdc-chip label="Alice" (removalEvent)="onChipRemoved($event)">
-        <mdc-chip-icon leading>face</mdc-chip-icon>
-        <mdc-chip-icon trailing>cancel</mdc-chip-icon>
+        <mdc-chip-icon leading>
+          <mdc-icon fontSet="mdi" fontIcon="mdi-face"></mdc-icon>
+        </mdc-chip-icon>
+        <mdc-chip-icon trailing>
+          <mdc-icon fontSet="mdi" fontIcon="mdi-cancel"></mdc-icon>
+        </mdc-chip-icon>
       </mdc-chip>
       <mdc-chip label="Bob" (removalEvent)="onChipRemoved($event)">
-        <mdc-chip-icon leading>face</mdc-chip-icon>
-        <mdc-chip-icon trailing>cancel</mdc-chip-icon>
+        <mdc-chip-icon leading>
+          <mdc-icon fontSet="mdi" fontIcon="mdi-face"></mdc-icon>
+        </mdc-chip-icon>
+        <mdc-chip-icon trailing>
+          <mdc-icon fontSet="mdi" fontIcon="mdi-cancel"></mdc-icon>
+        </mdc-chip-icon>
       </mdc-chip>
       <mdc-chip label='Charlie' (removalEvent)="onChipRemoved($event)">
-        <mdc-chip-icon leading>face</mdc-chip-icon>
-        <mdc-chip-icon trailing>cancel</mdc-chip-icon>
+        <mdc-chip-icon leading>
+          <mdc-icon fontSet="mdi" fontIcon="mdi-face"></mdc-icon>
+        </mdc-chip-icon>
+        <mdc-chip-icon trailing>
+          <mdc-icon fontSet="mdi" fontIcon="mdi-cancel"></mdc-icon>
+        </mdc-chip-icon>
       </mdc-chip>
       <mdc-chip label='David' (removalEvent)="onChipRemoved($event)">
-        <mdc-chip-icon leading>face</mdc-chip-icon>
-        <mdc-chip-icon trailing>cancel</mdc-chip-icon>
+        <mdc-chip-icon leading>
+          <mdc-icon fontSet="mdi" fontIcon="mdi-face"></mdc-icon>
+        </mdc-chip-icon>
+        <mdc-chip-icon trailing>
+          <mdc-icon fontSet="mdi" fontIcon="mdi-cancel"></mdc-icon>
+        </mdc-chip-icon>
       </mdc-chip>
     </mdc-chip-set>
   </div>
@@ -127,19 +146,27 @@ export const ChipsFilterLeading = () => ({
     <div class="storybook-wrapper">
       <mdc-chip-set filter>
         <mdc-chip>
-          <mdc-chip-icon leading>face</mdc-chip-icon>
+          <mdc-chip-icon leading>
+            <mdc-icon fontSet="mdi" fontIcon="mdi-face"></mdc-icon>
+          </mdc-chip-icon>
           <mdc-chip-text>Alice</mdc-chip-text>
         </mdc-chip>
         <mdc-chip>
-          <mdc-chip-icon leading>face</mdc-chip-icon>
+          <mdc-chip-icon leading>
+            <mdc-icon fontSet="mdi" fontIcon="mdi-face"></mdc-icon>
+          </mdc-chip-icon>
           <mdc-chip-text>Bob</mdc-chip-text>
         </mdc-chip>
         <mdc-chip>
-          <mdc-chip-icon leading>face</mdc-chip-icon>
+          <mdc-chip-icon leading>
+            <mdc-icon fontSet="mdi" fontIcon="mdi-face"></mdc-icon>
+          </mdc-chip-icon>
           <mdc-chip-text>Charlie</mdc-chip-text>
         </mdc-chip>
         <mdc-chip>
-          <mdc-chip-icon leading>face</mdc-chip-icon>
+          <mdc-chip-icon leading>
+            <mdc-icon fontSet="mdi" fontIcon="mdi-face"></mdc-icon>
+          </mdc-chip-icon>
           <mdc-chip-text>David</mdc-chip-text>
         </mdc-chip>
       </mdc-chip-set>
@@ -156,19 +183,27 @@ export const ChipsAction = () => ({
     <div class="storybook-wrapper">
       <mdc-chip-set>
         <mdc-chip>
-          <mdc-chip-icon leading>wb_sunny</mdc-chip-icon>
+          <mdc-chip-icon leading>
+            <mdc-icon fontSet="mdi" fontIcon="mdi-weather-sunny"></mdc-icon>
+          </mdc-chip-icon>
           <mdc-chip-text>Turn on lights</mdc-chip-text>
         </mdc-chip>
         <mdc-chip>
-          <mdc-chip-icon leading>bookmark</mdc-chip-icon>
+          <mdc-chip-icon leading>
+            <mdc-icon fontSet="mdi" fontIcon="mdi-bookmark"></mdc-icon>
+          </mdc-chip-icon>
           <mdc-chip-text>Bookmark</mdc-chip-text>
         </mdc-chip>
         <mdc-chip>
-          <mdc-chip-icon leading>alarm</mdc-chip-icon>
+          <mdc-chip-icon leading>
+            <mdc-icon fontSet="mdi" fontIcon="mdi-alarm"></mdc-icon>
+          </mdc-chip-icon>
           <mdc-chip-text>Set alarm</mdc-chip-text>
         </mdc-chip>
         <mdc-chip>
-          <mdc-chip-icon leading>directions</mdc-chip-icon>
+          <mdc-chip-icon leading>
+            <mdc-icon fontSet="mdi" fontIcon="mdi-directions"></mdc-icon>
+          </mdc-chip-icon>
           <mdc-chip-text>Get Directions</mdc-chip-text>
         </mdc-chip>
       </mdc-chip-set>
@@ -270,28 +305,40 @@ export const ChipsCustom = () => ({
           <mdc-chip-text>Horizontal Padding</mdc-chip-text>
         </mdc-chip>
         <mdc-chip class="custom-chip--leading-icon-color">
-          <mdc-chip-icon leading>wb_sunny</mdc-chip-icon>
+          <mdc-chip-icon leading>
+            <mdc-icon fontSet="mdi" fontIcon="mdi-weather-sunny"></mdc-icon>
+          </mdc-chip-icon>
           <mdc-chip-text>Leading Icon Color</mdc-chip-text>
         </mdc-chip>
         <mdc-chip class="custom-chip--trailing-icon-color">
           <mdc-chip-text>Trailing Icon Color</mdc-chip-text>
-          <mdc-chip-icon trailing>wb_sunny</mdc-chip-icon>
+          <mdc-chip-icon trailing>
+            <mdc-icon fontSet="mdi" fontIcon="mdi-weather-sunny"></mdc-icon>
+          </mdc-chip-icon>
         </mdc-chip>
         <mdc-chip class="custom-chip--leading-icon-size">
-          <mdc-chip-icon leading>wb_sunny</mdc-chip-icon>
+          <mdc-chip-icon leading>
+            <mdc-icon fontSet="mdi" fontIcon="mdi-weather-sunny"></mdc-icon>
+          </mdc-chip-icon>
           <mdc-chip-text>Leading Icon Size</mdc-chip-text>
         </mdc-chip>
         <mdc-chip class="custom-chip--trailing-icon-size">
           <mdc-chip-text>Trailing Icon Size</mdc-chip-text>
-          <mdc-chip-icon trailing>wb_sunny</mdc-chip-icon>
+          <mdc-chip-icon trailing>
+            <mdc-icon fontSet="mdi" fontIcon="mdi-weather-sunny"></mdc-icon>
+          </mdc-chip-icon>
         </mdc-chip>
         <mdc-chip class="custom-chip--leading-icon-margin">
-          <mdc-chip-icon leading>wb_sunny</mdc-chip-icon>
+          <mdc-chip-icon leading>
+            <mdc-icon fontSet="mdi" fontIcon="mdi-weather-sunny"></mdc-icon>
+          </mdc-chip-icon>
           <mdc-chip-text>Leading Icon Margin</mdc-chip-text>
         </mdc-chip>
         <mdc-chip class="custom-chip--trailing-icon-margin">
           <mdc-chip-text>Trailing Icon Margin</mdc-chip-text>
-          <mdc-chip-icon trailing>wb_sunny</mdc-chip-icon>
+          <mdc-chip-icon trailing>
+            <mdc-icon fontSet="mdi" fontIcon="mdi-weather-sunny"></mdc-icon>
+          </mdc-chip-icon>
         </mdc-chip>
       </mdc-chip-set>
     </div>
