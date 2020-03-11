@@ -11,7 +11,10 @@ import {
   MdcIconButtonModule,
   MdcCardModule,
   MdcFormFieldModule,
-  MdcTextFieldModule
+  MdcTextFieldModule,
+  MdcTopAppBarModule,
+  MdcDrawerModule,
+  MdcListModule
 } from '@angular-mdc/web';
 
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
@@ -33,8 +36,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MdcButtonModule,
     MdcIconButtonModule,
     MdcCardModule,
+    MdcDrawerModule,
     MdcFormFieldModule,
+    MdcListModule,
     MdcTextFieldModule,
+    MdcTopAppBarModule,
 
     NgxDatatableModule,
     NgxChartsModule,
@@ -53,8 +59,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MdcButtonModule,
     MdcIconButtonModule,
     MdcCardModule,
+    MdcDrawerModule,
     MdcFormFieldModule,
+    MdcListModule,
     MdcTextFieldModule,
+    MdcTopAppBarModule,
 
     NgxDatatableModule,
     NgxChartsModule,
