@@ -11,6 +11,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 
         <mdc-form-field fluid>
           <mdc-text-field label="Email" outlined formControlName="email">
+            <mdc-icon mdcTextFieldIcon leading fontSet="mdi" fontIcon="mdi-email"></mdc-icon>
           </mdc-text-field>
           <mdc-helper-text validation>
             <span *ngIf="form.controls['email'].hasError('required')">Email is required</span>

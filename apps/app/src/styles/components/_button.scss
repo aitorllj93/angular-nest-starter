@@ -36,3 +36,24 @@
   // Sets button density scale to `-3`, i.e. button height to `24px`.
   @include button.density(-3);
 }
+
+.button-google {
+  @include button.ink-color(#4285f4);
+  @include ripple.states(#4285f4);
+}
+
+.button-microsoft {
+  @include button.ink-color(#f65314);
+  @include ripple.states(#f65314);
+}
+
+.button-facebook {
+  @include button.ink-color(#3b5998);
+  @include ripple.states(#3b5998);
+}
+
+.button-spotify {
+  @include button.ink-color(#1DB954);
+  @include ripple.states(#1DB954);
+}
+

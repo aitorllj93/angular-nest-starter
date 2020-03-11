@@ -28,10 +28,10 @@ export const LoginForm = () => ({
   `,
   props: {
     thirdPartyOptions: object('Third Party Options', [
-      { label: 'Google', value: 'google', icon: 'google' },
-      { label: 'Microsoft', value: 'microsoft', icon: 'microsoft' },
-      { label: 'Facebook', value: 'facebook', icon: 'facebook' },
-      { label: 'Spotify', value: 'spotify', icon: 'spotify' },
+      { label: 'Google', value: 'google', icon: 'google', color: 'button-google' },
+      { label: 'Microsoft', value: 'microsoft', icon: 'microsoft', color: 'button-microsoft' },
+      { label: 'Facebook', value: 'facebook', icon: 'facebook', color: 'button-facebook' },
+      { label: 'Spotify', value: 'spotify', icon: 'spotify', color: 'button-spotify' },
     ]),
     thirdPartyClick: action('On Third Party Click'),
     submitForm: action('On Submit Form')
@@ -57,4 +57,21 @@ export const ForgotPasswordForm = () => ({
 
 ForgotPasswordForm.story = {
   name: 'Forgot Password Form'
+};
+
+export const ResetPasswordForm = () => ({
+  template: `
+    <div class="storybook-wrapper">
+      <app-reset-password-form
+        (submitForm)="submitForm($event)">
+      </app-reset-password-form>
+    </div>
+  `,
+  props: {
+    submitForm: action('On Submit Form')
+  }
+});
+
+ResetPasswordForm.story = {
+  name: 'Reset Password Form'
 };
