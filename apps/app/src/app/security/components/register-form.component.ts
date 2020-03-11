@@ -1,10 +1,11 @@
 
-import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { User } from '../models/user.model';
+import { Validators, FormControl, FormGroup } from '@angular/forms';
+import { FieldIsSameValidator } from '../../ui/forms/validators/field-is-same.validator';
 
 @Component({
-  selector: 'app-login-form',
+  selector: 'app-register-form',
   template: `
     <mdc-card  style="padding: 1em;">
 
@@ -36,17 +37,28 @@ import { User } from '../models/user.model';
           </mdc-helper-text>
         </mdc-form-field>
 
+        <mdc-form-field fluid>
+          <mdc-text-field label="Repeat Password" outlined formControlName="repeatPassword" type="password">
+            <mdc-icon mdcTextFieldIcon leading fontSet="mdi" fontIcon="mdi-key"></mdc-icon>
+          </mdc-text-field>
+          <mdc-helper-text validation>
+            <span *ngIf="form.controls['repeatPassword'].hasError('required')">Repeat password is required</span>
+            <span *ngIf="form.controls['repeatPassword'].hasError('fieldIsNotSame')">Password is not same</span>
+          </mdc-helper-text>
+        </mdc-form-field>
+
         <div class="form-button-container" style="margin: 0 auto; display: table;">
-          <button mdc-button [disabled]="!form.valid" style="margin: 0.5em;">Log In</button>
-          <button mdc-button type="button" style="margin: 0.5em;" (click)="onRegisterClick()">Register</button>
+          <button mdc-button [disabled]="!form.valid" style="margin: 0.5em;">Register</button>
+          <button mdc-button type="button" style="margin: 0.5em;" (click)="onLoginClick()">Login</button>
           <button mdc-button type="button" style="margin: 0.5em;" (click)="onForgotPasswordClick()">Forgot Password</button>
         </div>
       </form>
     </mdc-card>
+
+
   `
 })
-
-export class LoginFormComponent {
+export class RegisterFormComponent {
 
   @Input() thirdPartyOptions: {
     label: string;
@@ -57,12 +69,13 @@ export class LoginFormComponent {
 
   @Output() thirdPartyClick = new EventEmitter<string>();
   @Output() submitForm = new EventEmitter<User>();
-  @Output() registerClick = new EventEmitter();
+  @Output() loginClick = new EventEmitter();
   @Output() forgotPasswordClick = new EventEmitter();
 
   form = new FormGroup({
     username: new FormControl('', Validators.required),
-    password: new FormControl('', Validators.required)
+    password: new FormControl('', Validators.required),
+    repeatPassword: new FormControl('', [Validators.required, FieldIsSameValidator()])
   });
 
   onThirdPartyClick(value: string) {
@@ -77,8 +90,8 @@ export class LoginFormComponent {
     this.submitForm.emit(this.form.value);
   }
 
-  onRegisterClick() {
-    this.registerClick.emit();
+  onLoginClick() {
+    this.loginClick.emit();
   }
 
   onForgotPasswordClick() {

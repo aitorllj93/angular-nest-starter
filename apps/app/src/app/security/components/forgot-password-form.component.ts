@@ -15,6 +15,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
           </mdc-text-field>
           <mdc-helper-text validation>
             <span *ngIf="form.controls['email'].hasError('required')">Email is required</span>
+            <span *ngIf="form.controls['email'].hasError('email')">Input must be an email</span>
           </mdc-helper-text>
         </mdc-form-field>
 
@@ -31,7 +32,7 @@ export class ForgotPasswordFormComponent {
   @Output() submitForm = new EventEmitter<{ email: string }>();
 
   form = new FormGroup({
-    email: new FormControl('', Validators.required),
+    email: new FormControl('', [Validators.required, Validators.email]),
   });
 
   onSubmit() {
