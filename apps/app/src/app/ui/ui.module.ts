@@ -15,6 +15,7 @@ import {
 } from '@angular-mdc/web';
 
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
+import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
@@ -36,6 +37,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MdcTextFieldModule,
 
     NgxDatatableModule,
+    NgxChartsModule,
     NgSelectModule
   ],
   exports: [
@@ -55,6 +57,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MdcTextFieldModule,
 
     NgxDatatableModule,
+    NgxChartsModule,
     NgSelectModule
   ],
   providers: [],

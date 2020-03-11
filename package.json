@@ -47,6 +47,7 @@
     "@nestjs/platform-express": "^6.8.3",
     "@ng-select/ng-select": "^3.7.3",
     "@nrwl/angular": "9.0.4",
+    "@swimlane/ngx-charts": "^13.0.2",
     "@swimlane/ngx-datatable": "^16.0.3",
     "core-js": "^2.5.4",
     "reflect-metadata": "^0.1.13",

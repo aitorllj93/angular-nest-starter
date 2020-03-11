@@ -18,7 +18,7 @@ export const routes: Routes = [
     UIModule,
     RouterModule.forChild(routes)
   ],
-  exports: [],
+  exports: [HomeComponent],
   declarations: [HomeComponent],
   providers: [],
 })
