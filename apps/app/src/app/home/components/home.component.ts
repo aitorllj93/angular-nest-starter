@@ -15,36 +15,39 @@ import { Subject, BehaviorSubject } from 'rxjs';
         fxLayout.xs="column"
         fxFlexFill >
 
-      <div [fxFlex]="50">
+      <div [fxFlex]="50" style=" padding: 20px;">
 
-        <ngx-datatable
-          class="material striped"
-          [rows]="[(hello$ | async)]"
-          [columns]="columns"
-          [columnMode]="columnMode"
-          [headerHeight]="50"
-          [footerHeight]="50"
-          [rowHeight]="50">
-        </ngx-datatable>
+        <mdc-card>
+          <ngx-datatable
+            class="material striped"
+            [rows]="hello$ | async"
+            [columns]="columns"
+            [columnMode]="columnMode"
+            [headerHeight]="50"
+            [footerHeight]="50"
+            [rowHeight]="50">
+          </ngx-datatable>
+        </mdc-card>
 
       </div>
 
-      <div [fxFlex]="50">
+      <div [fxFlex]="50" style=" padding: 20px;">
 
-        <ngx-charts-area-chart-stacked
-          [view]="view"
-          [scheme]="colorScheme"
-          [legend]="legend"
-          [showXAxisLabel]="showXAxisLabel"
-          [showYAxisLabel]="showYAxisLabel"
-          [xAxis]="xAxis"
-          [yAxis]="yAxis"
-          [xAxisLabel]="xAxisLabel"
-          [yAxisLabel]="yAxisLabel"
-          [timeline]="timeline"
-          [results]="multi"
-          (select)="onSelect($event)">
-        </ngx-charts-area-chart-stacked>
+        <mdc-card style="height: 300px; padding-top: 20px;">
+          <ngx-charts-area-chart-stacked
+            [scheme]="colorScheme"
+            [legend]="legend"
+            [showXAxisLabel]="showXAxisLabel"
+            [showYAxisLabel]="showYAxisLabel"
+            [xAxis]="xAxis"
+            [yAxis]="yAxis"
+            [xAxisLabel]="xAxisLabel"
+            [yAxisLabel]="yAxisLabel"
+            [timeline]="timeline"
+            [results]="multi"
+            (select)="onSelect($event)">
+          </ngx-charts-area-chart-stacked>
+        </mdc-card>
 
       </div>
 
@@ -54,7 +57,10 @@ import { Subject, BehaviorSubject } from 'rxjs';
 
 export class HomeComponent implements OnInit {
   // hello$ = this.http.get<Message>('/api/hello');
-  hello$ = new BehaviorSubject({ message: 'Hello' })
+  hello$ = new BehaviorSubject([
+    { message: 'Hello' },
+    { message: 'World' },
+  ])
 
   columnMode = ColumnMode.force;
   columns = [
@@ -131,7 +137,6 @@ export class HomeComponent implements OnInit {
       ]
     }
   ];
-  view: any[] = [700, 300];
 
   // options
   legend = true;
