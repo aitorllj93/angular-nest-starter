@@ -7,7 +7,7 @@ export class Init {
 }
 export class LoginSubmit {
   readonly type = AUTH_MACHINE_TRANSITIONS.SUBMIT;
-  constructor(public username: string, public password: string) {}
+  constructor(public email: string, public password: string) {}
 }
 
 export class LoginFail {
@@ -20,7 +20,23 @@ export class LoginSuccess {
   constructor(public userInfo: User) {}
 }
 
-export type AuthEvent = Init | LoginSubmit | LoginSuccess | LoginFail;
+export class ResetPassword {
+  readonly type = AUTH_MACHINE_TRANSITIONS.RESET_PASSWORD;
+  constructor(public email: string) {}
+}
+
+export class ChangePassword {
+  readonly type = AUTH_MACHINE_TRANSITIONS.CHANGE_PASSWORD;
+  constructor(public changeToken: string, public password: string) {}
+}
+
+export type AuthEvent =
+  Init |
+  LoginSubmit |
+  LoginSuccess |
+  LoginFail |
+  ResetPassword |
+  ChangePassword;
 
 export interface Errors {
   [key: string]: string;

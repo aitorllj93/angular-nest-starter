@@ -49,7 +49,17 @@ export const authMachineConfig: MachineConfig<
           {
             target: AUTH_MACHINE_STATES.LOADING
           }
-        ]
+        ],
+        [AUTH_MACHINE_TRANSITIONS.RESET_PASSWORD]: [
+          {
+            target: AUTH_MACHINE_STATES.RESETTING_PASSWORD
+          }
+        ],
+        [AUTH_MACHINE_TRANSITIONS.CHANGE_PASSWORD]: [
+          {
+            target: AUTH_MACHINE_STATES.CHANGING_PASSWORD
+          }
+        ],
       }
     },
     [AUTH_MACHINE_STATES.LOGGED_IN]: {
@@ -69,6 +79,36 @@ export const authMachineConfig: MachineConfig<
         [AUTH_MACHINE_TRANSITIONS.SUCCESS]: {
           target: AUTH_MACHINE_STATES.LOGGED_IN,
           actions: [AUTH_MACHINE_ACTIONS.ASSIGN_USER, AUTH_MACHINE_ACTIONS.LOGIN_SUCCESS]
+        },
+        [AUTH_MACHINE_TRANSITIONS.FAILURE]: {
+          target: AUTH_MACHINE_STATES.REQUEST_ERR,
+          actions: [AUTH_MACHINE_ACTIONS.ASSIGN_ERRORS]
+        }
+      }
+    },
+    [AUTH_MACHINE_STATES.CHANGING_PASSWORD]: {
+      invoke: {
+        id: AUTH_MACHINE_ID,
+        src: AUTH_MACHINE_SERVICES.REQUEST_PASSWORD_CHANGE
+      },
+      on: {
+        [AUTH_MACHINE_TRANSITIONS.SUCCESS]: {
+          target: AUTH_MACHINE_STATES.LOGGED_OUT
+        },
+        [AUTH_MACHINE_TRANSITIONS.FAILURE]: {
+          target: AUTH_MACHINE_STATES.REQUEST_ERR,
+          actions: [AUTH_MACHINE_ACTIONS.ASSIGN_ERRORS]
+        }
+      }
+    },
+    [AUTH_MACHINE_STATES.RESETTING_PASSWORD]: {
+      invoke: {
+        id: AUTH_MACHINE_ID,
+        src: AUTH_MACHINE_SERVICES.REQUEST_PASSWORD_RESET
+      },
+      on: {
+        [AUTH_MACHINE_TRANSITIONS.SUCCESS]: {
+          target: AUTH_MACHINE_STATES.LOGGED_OUT
         },
         [AUTH_MACHINE_TRANSITIONS.FAILURE]: {
           target: AUTH_MACHINE_STATES.REQUEST_ERR,

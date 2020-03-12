@@ -8,14 +8,18 @@ export enum AUTH_MACHINE_STATES {
   LOGGED_OUT = 'loggedOut',
   LOGGED_IN = 'loggedIn',
   REQUEST_ERR = 'requestErr',
-  LOADING = 'loading'
+  LOADING = 'loading',
+  RESETTING_PASSWORD = 'resettingPassword',
+  CHANGING_PASSWORD = 'changingPassword'
 }
 
 export enum AUTH_MACHINE_TRANSITIONS {
   INIT = 'INIT',
   SUBMIT = 'SUBMIT',
   SUCCESS = 'SUCCESS',
-  FAILURE = 'FAILURE'
+  FAILURE = 'FAILURE',
+  RESET_PASSWORD = 'RESET_PASSWORD',
+  CHANGE_PASSWORD = 'CHANGE_PASSWORD'
 }
 
 export enum AUTH_MACHINE_ACTIONS {
@@ -25,7 +29,9 @@ export enum AUTH_MACHINE_ACTIONS {
 }
 
 export enum AUTH_MACHINE_SERVICES {
-  REQUEST_LOGIN = 'requestLogin'
+  REQUEST_LOGIN = 'requestLogin',
+  REQUEST_PASSWORD_RESET = 'requestPasswordReset',
+  REQUEST_PASSWORD_CHANGE = 'requestPasswordChange'
 }
 
 export enum AUTH_MACHINE_GUARDS {
@@ -39,6 +45,8 @@ export interface AuthSchema {
     [AUTH_MACHINE_STATES.LOGGED_IN]: {};
     [AUTH_MACHINE_STATES.REQUEST_ERR]: {};
     [AUTH_MACHINE_STATES.LOADING]: {};
+    [AUTH_MACHINE_STATES.RESETTING_PASSWORD]: {};
+    [AUTH_MACHINE_STATES.CHANGING_PASSWORD]: {};
   };
 }
 
