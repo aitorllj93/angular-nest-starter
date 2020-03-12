@@ -1,6 +1,6 @@
 
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { FormGroup, FormControl, Validators, ValidatorFn, AbstractControl } from '@angular/forms';
+import { Component, Output, EventEmitter } from '@angular/core';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 import { FieldIsSameValidator } from '../../ui/forms/validators/field-is-same.validator';
 

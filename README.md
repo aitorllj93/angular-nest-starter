@@ -13,6 +13,7 @@ Includes the following packages:
 | [Angular](https://angular.io/)                 | 9.0.0   |
 | [NestJS](https://nestjs.com/)                  | 6.8.3   |
 | [rxjs](https://rxjs.dev/)                    | 6.5.0   |
+| [xstate]()                                   | 4.8.0   |
 | [@storybook/angular](https://storybook.js.org/)      | 5.3.14  |
 | [@angular/cdk](https://material.angular.io/cdk/categories)            | 9.1.1   |
 | [@angular/flex-layout](https://github.com/angular/flex-layout)    | 9.0.0   |

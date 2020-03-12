@@ -16,16 +16,16 @@ export class BaseMachine<Context = any, Schema = any, Event extends EventObject 
     actions: this.actions
   };
 
-  protected _machine = Machine<Context, Schema, Event>(
+  machine = Machine<Context, Schema, Event>(
     this.config
   ).withConfig(this.options);
 
-  protected _service = interpret(this._machine, { devTools: true }).start();
+  service = interpret(this.machine, { devTools: true }).start();
 
-  state$ = from(this._service);
+  state$ = from(this.service);
 
   send(event: Event) {
-    this._service.send(event);
+    this.service.send(event);
   }
 
 }

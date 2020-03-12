@@ -1,40 +1,38 @@
-import { of, from } from 'rxjs';
-import {
-  interpret,
-  Machine,
-  MachineOptions,
-  State,
-  assign,
-  EventObject
-} from 'xstate';
+
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
+
+import { assign } from 'xstate';
+import { of } from 'rxjs';
+import { map, catchError } from 'rxjs/operators';
+
+import { BaseMachine } from '../../core/machines/base.machine';
 import { AuthService } from '../services/auth.service';
+import { TokenService } from '../services/token.service';
+
 import { authMachineConfig } from './auth-machine.config';
 import { AuthSchema, AuthContext } from './auth-machine.schema';
-import { map, catchError } from 'rxjs/operators';
-import { Router } from '@angular/router';
 import { LoginSuccess, AuthEvent, LoginFail } from './auth-machine.events';
-import { BaseMachine } from '../../core/services/base/base.machine';
-import { TokenService } from '../services/token.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthMachine extends BaseMachine<AuthContext, AuthSchema, AuthEvent> {
 
+  config = authMachineConfig;
+
   services = {
     requestLogin: (_, event) =>
-      of(null)
-      // this.authService
-      //   .login({ email: event.username, password: event.password })
-      //   .pipe(
-      //     map(user => new LoginSuccess(user)),
-      //     catchError(result => of(new LoginFail(result.error.errors)))
-      //   )
+      this.authService
+        .login({ email: event.username, password: event.password })
+        .pipe(
+          map(user => new LoginSuccess(user)),
+          catchError(result => of(new LoginFail(result.error.errors)))
+        )
   }
 
   guards = {
-    isLoggedOut: () => !this.token.token
+    isLoggedOut: () => !this.tokenService.token
   }
 
   actions = {
@@ -50,7 +48,7 @@ export class AuthMachine extends BaseMachine<AuthContext, AuthSchema, AuthEvent>
     })),
 
     loginSuccess: (ctx, _) => {
-      this.token.token = ctx.user.token;
+      this.tokenService.token = ctx.user.token;
       this.router.navigateByUrl('');
     }
   }
@@ -58,7 +56,7 @@ export class AuthMachine extends BaseMachine<AuthContext, AuthSchema, AuthEvent>
   constructor(
     private authService: AuthService,
     private router: Router,
-    private token: TokenService,
+    private tokenService: TokenService,
   ) {
     super();
   }

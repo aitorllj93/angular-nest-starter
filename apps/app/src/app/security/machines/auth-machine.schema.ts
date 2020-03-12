@@ -1,7 +1,7 @@
 
 import { User } from '../models/user.model';
 
-export const MACHINE_FINAL_TYPE = 'final';
+export const AUTH_MACHINE_ID = 'login';
 
 export enum AUTH_MACHINE_STATES {
   BOOT = 'boot',
@@ -31,8 +31,6 @@ export enum AUTH_MACHINE_SERVICES {
 export enum AUTH_MACHINE_GUARDS {
   IS_LOGGED_OUT = 'isLoggedOut'
 }
-
-export const AUTH_MACHINE_ID = 'login';
 
 export interface AuthSchema {
   states: {

@@ -1,5 +1,18 @@
 import { MachineConfig } from 'xstate';
-import { AuthSchema, AuthContext, AUTH_MACHINE_STATES, AUTH_MACHINE_ACTIONS, AUTH_MACHINE_SERVICES, AUTH_MACHINE_GUARDS, AUTH_MACHINE_ID, AUTH_MACHINE_TRANSITIONS, MACHINE_FINAL_TYPE } from './auth-machine.schema';
+
+import { MACHINE_FINAL_TYPE } from '../../core/machines/machines.constants';
+
+import {
+  AuthSchema,
+  AuthContext,
+  AUTH_MACHINE_ID,
+  AUTH_MACHINE_STATES,
+  AUTH_MACHINE_ACTIONS,
+  AUTH_MACHINE_SERVICES,
+  AUTH_MACHINE_GUARDS,
+  AUTH_MACHINE_TRANSITIONS,
+} from './auth-machine.schema';
+
 import { AuthEvent } from './auth-machine.events';
 
 export const context: AuthContext = {
