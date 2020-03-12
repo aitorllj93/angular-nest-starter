@@ -1,12 +1,21 @@
 
 import { User } from '../models/user.model';
 
+export const MACHINE_FINAL_TYPE = 'final';
+
 export enum AUTH_MACHINE_STATES {
   BOOT = 'boot',
   LOGGED_OUT = 'loggedOut',
   LOGGED_IN = 'loggedIn',
   REQUEST_ERR = 'requestErr',
   LOADING = 'loading'
+}
+
+export enum AUTH_MACHINE_TRANSITIONS {
+  INIT = 'INIT',
+  SUBMIT = 'SUBMIT',
+  SUCCESS = 'SUCCESS',
+  FAILURE = 'FAILURE'
 }
 
 export enum AUTH_MACHINE_ACTIONS {

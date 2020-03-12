@@ -1,5 +1,5 @@
 import { MachineConfig } from 'xstate';
-import { AuthSchema, AuthContext, AUTH_MACHINE_STATES, AUTH_MACHINE_ACTIONS, AUTH_MACHINE_SERVICES, AUTH_MACHINE_GUARDS, AUTH_MACHINE_ID } from './auth-machine.schema';
+import { AuthSchema, AuthContext, AUTH_MACHINE_STATES, AUTH_MACHINE_ACTIONS, AUTH_MACHINE_SERVICES, AUTH_MACHINE_GUARDS, AUTH_MACHINE_ID, AUTH_MACHINE_TRANSITIONS, MACHINE_FINAL_TYPE } from './auth-machine.schema';
 import { AuthEvent } from './auth-machine.events';
 
 export const context: AuthContext = {
@@ -32,7 +32,7 @@ export const authMachineConfig: MachineConfig<
     },
     [AUTH_MACHINE_STATES.LOGGED_OUT]: {
       on: {
-        SUBMIT: [
+        [AUTH_MACHINE_TRANSITIONS.SUBMIT]: [
           {
             target: AUTH_MACHINE_STATES.LOADING
           }
@@ -40,11 +40,11 @@ export const authMachineConfig: MachineConfig<
       }
     },
     [AUTH_MACHINE_STATES.LOGGED_IN]: {
-      type: 'final'
+      type: MACHINE_FINAL_TYPE
     },
     [AUTH_MACHINE_STATES.REQUEST_ERR]: {
       on: {
-        SUBMIT: AUTH_MACHINE_STATES.LOADING
+        [AUTH_MACHINE_TRANSITIONS.SUBMIT]: AUTH_MACHINE_STATES.LOADING
       }
     },
     [AUTH_MACHINE_STATES.LOADING]: {
@@ -53,11 +53,11 @@ export const authMachineConfig: MachineConfig<
         src: AUTH_MACHINE_SERVICES.REQUEST_LOGIN
       },
       on: {
-        SUCCESS: {
+        [AUTH_MACHINE_TRANSITIONS.SUCCESS]: {
           target: AUTH_MACHINE_STATES.LOGGED_IN,
           actions: [AUTH_MACHINE_ACTIONS.ASSIGN_USER, AUTH_MACHINE_ACTIONS.LOGIN_SUCCESS]
         },
-        FAILURE: {
+        [AUTH_MACHINE_TRANSITIONS.FAILURE]: {
           target: AUTH_MACHINE_STATES.REQUEST_ERR,
           actions: [AUTH_MACHINE_ACTIONS.ASSIGN_ERRORS]
         }
