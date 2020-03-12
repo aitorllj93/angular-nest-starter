@@ -1,5 +1,5 @@
 import { MachineConfig } from 'xstate';
-import { AuthSchema, AuthContext } from './auth-machine.schema';
+import { AuthSchema, AuthContext, AUTH_MACHINE_STATES, AUTH_MACHINE_ACTIONS, AUTH_MACHINE_SERVICES, AUTH_MACHINE_GUARDS, AUTH_MACHINE_ID } from './auth-machine.schema';
 import { AuthEvent } from './auth-machine.events';
 
 export const context: AuthContext = {
@@ -18,48 +18,48 @@ export const authMachineConfig: MachineConfig<
   AuthSchema,
   AuthEvent
 > = {
-  id: 'login',
+  id: AUTH_MACHINE_ID,
   context,
-  initial: 'boot',
+  initial: AUTH_MACHINE_STATES.BOOT,
   states: {
-    boot: {
+    [AUTH_MACHINE_STATES.BOOT]: {
       on: {
         '': [
-          { target: 'loggedOut', cond: 'isLoggedOut' },
-          { target: 'loggedIn' }
+          { target: AUTH_MACHINE_STATES.LOGGED_OUT, cond: AUTH_MACHINE_GUARDS.IS_LOGGED_OUT },
+          { target: AUTH_MACHINE_STATES.LOGGED_IN }
         ]
       }
     },
-    loggedOut: {
+    [AUTH_MACHINE_STATES.LOGGED_OUT]: {
       on: {
         SUBMIT: [
           {
-            target: 'loading'
+            target: AUTH_MACHINE_STATES.LOADING
           }
         ]
       }
     },
-    loggedIn: {
+    [AUTH_MACHINE_STATES.LOGGED_IN]: {
       type: 'final'
     },
-    requestErr: {
+    [AUTH_MACHINE_STATES.REQUEST_ERR]: {
       on: {
-        SUBMIT: 'loading'
+        SUBMIT: AUTH_MACHINE_STATES.LOADING
       }
     },
-    loading: {
+    [AUTH_MACHINE_STATES.LOADING]: {
       invoke: {
-        id: 'login',
-        src: 'requestLogin'
+        id: AUTH_MACHINE_ID,
+        src: AUTH_MACHINE_SERVICES.REQUEST_LOGIN
       },
       on: {
         SUCCESS: {
-          target: 'loggedIn',
-          actions: ['assignUser', 'loginSuccess']
+          target: AUTH_MACHINE_STATES.LOGGED_IN,
+          actions: [AUTH_MACHINE_ACTIONS.ASSIGN_USER, AUTH_MACHINE_ACTIONS.LOGIN_SUCCESS]
         },
         FAILURE: {
-          target: 'requestErr',
-          actions: ['assignErrors']
+          target: AUTH_MACHINE_STATES.REQUEST_ERR,
+          actions: [AUTH_MACHINE_ACTIONS.ASSIGN_ERRORS]
         }
       }
     }
