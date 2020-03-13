@@ -21,10 +21,13 @@ export class IsLoggedOutGuard implements CanActivate {
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
-  ): Observable<boolean> {
-    return this.machine.state$.pipe(
-      map((machineState) => machineState.value === LOGIN_MACHINE_STATES.LOGGED_OUT),
-      tap(isLogged => isLogged ? null : this.router.navigate(['']))
-    );
+  ): boolean {
+    if (this.machine.service.state.value === LOGIN_MACHINE_STATES.LOGGED_OUT) {
+      return true;
+    }
+
+    this.router.navigate(['']);
+
+    return false;
   }
 }
