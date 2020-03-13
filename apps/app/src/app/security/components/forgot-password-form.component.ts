@@ -1,5 +1,5 @@
 
-import { Component, Output, EventEmitter } from '@angular/core';
+import { Component, Output, EventEmitter, Input } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
@@ -8,6 +8,10 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
     <mdc-card  style="padding: 1em;">
 
       <form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+        <ng-container *ngIf="logoUrl">
+          <img class="security-logo" [src]="logoUrl">
+        </ng-container>
 
         <mdc-form-field fluid>
           <mdc-text-field label="Email" outlined formControlName="email">
@@ -28,6 +32,8 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 })
 
 export class ForgotPasswordFormComponent {
+
+  @Input() logoUrl = null;
 
   @Output() submitForm = new EventEmitter<{ email: string }>();
 

@@ -1,6 +1,9 @@
 
 import { Component, OnInit } from '@angular/core';
 
+import { LoginMachine } from '../../security/machines/login/login-machine.service';
+import { LogoutSubmit } from '../../security/machines/login/login-machine.events';
+
 @Component({
   selector: 'app-main-layout',
   template: `
@@ -12,14 +15,8 @@ import { Component, OnInit } from '@angular/core';
           </button>
         </mdc-top-app-bar-section>
         <mdc-top-app-bar-section align="end">
-          <button mdcTopAppBarActionItem>
-            <mdc-icon fontSet="mdi" fontIcon="mdi-file-download"></mdc-icon>
-          </button>
-          <button mdcTopAppBarActionItem>
-            <mdc-icon fontSet="mdi" fontIcon="mdi-printer"></mdc-icon>
-          </button>
-          <button mdcTopAppBarActionItem>
-            <mdc-icon fontSet="mdi" fontIcon="mdi-bookmark"></mdc-icon>
+          <button mdcTopAppBarActionItem (click)="onLogoutClick()">
+            <mdc-icon fontSet="mdi" fontIcon="mdi-logout"></mdc-icon>
           </button>
         </mdc-top-app-bar-section>
       </mdc-top-app-bar-row>
@@ -58,4 +55,12 @@ export class MainLayoutComponent {
     { label: 'Sent Mail', icon: 'send', activated: false },
     { label: 'Drafts', icon: 'email-open', activated: false }
   ];
+
+  constructor(
+    private loginMachine: LoginMachine
+  ) {}
+
+  onLogoutClick() {
+    this.loginMachine.send(new LogoutSubmit());
+  }
 }

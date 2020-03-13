@@ -10,10 +10,13 @@ import { User } from '../models/user.model';
 export class AuthService {
 
   login(user: User) {
-    return of(user);
+    return of({
+      ...user,
+      token: '1234'
+    });
   }
 
-  revoke() {
+  logout() {
     return of(null);
   }
 }

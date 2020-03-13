@@ -31,4 +31,6 @@ $white: #fff;
 @use './styles/components/top-app-bar';
 @use './styles/components/select';
 
+@use './styles/modules/security';
+
 @use '@angular-mdc/theme/material';

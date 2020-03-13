@@ -1,15 +1,17 @@
 
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
-import { AuthMachine } from '../machines/auth-machine.service';
+import { LoginMachine } from '../machines/login/login-machine.service';
+import { LoginSubmit } from '../machines/login/login-machine.events';
 
 import { User } from '../models/user.model';
-import { LoginSubmit } from '../machines/auth-machine.events';
 
 @Component({
   selector: 'app-login-container',
   template: `
     <app-login-form
+      [logoUrl]="logoUrl"
       [thirdPartyOptions]="thirdPartyOptions"
       (thirdPartyClick)="onThirdPartyClick($event)"
       (submitForm)="onSubmitForm($event)"
@@ -20,10 +22,13 @@ import { LoginSubmit } from '../machines/auth-machine.events';
 })
 export class LoginContainerComponent {
 
+  logoUrl = 'assets/shield.png';
+
   thirdPartyOptions = [];
 
   constructor(
-    private machine: AuthMachine,
+    private machine: LoginMachine,
+    private router: Router
   ) { }
 
   onThirdPartyClick(type: string) {}
@@ -32,7 +37,11 @@ export class LoginContainerComponent {
     this.machine.send(new LoginSubmit(user.username, user.password));
   }
 
-  onRegisterClick() {}
+  onRegisterClick() {
+    this.router.navigate(['auth/register']);
+  }
 
-  onForgotPasswordClick() {}
+  onForgotPasswordClick() {
+    this.router.navigate(['auth/forgot-password']);
+  }
 }

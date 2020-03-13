@@ -5,11 +5,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 
-import { UIModule } from '../ui/ui.module';
+import {NgxWebstorageModule} from 'ngx-webstorage';
 
-import { MainLayoutComponent } from './components/main-layout.component';
-import { HeaderComponent } from './components/header.component';
-import { LeftMenuComponent } from './components/left-menu.component';
+import { UIModule } from '../ui/ui.module';
 
 @NgModule({
   imports: [
@@ -17,22 +15,17 @@ import { LeftMenuComponent } from './components/left-menu.component';
     BrowserAnimationsModule,
     HttpClientModule,
     RouterModule,
+
+    NgxWebstorageModule.forRoot(),
+
     UIModule,
   ],
   exports: [
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
-
-    MainLayoutComponent,
-    HeaderComponent,
-    LeftMenuComponent,
   ],
-  declarations: [
-    MainLayoutComponent,
-    HeaderComponent,
-    LeftMenuComponent,
-  ],
+  declarations: [],
   providers: [],
 })
 export class CoreModule { }

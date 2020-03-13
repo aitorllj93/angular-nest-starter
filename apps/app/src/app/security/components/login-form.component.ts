@@ -10,10 +10,14 @@ import { User } from '../models/user.model';
 
       <form [formGroup]="form" (ngSubmit)="onSubmit()">
 
+        <ng-container *ngIf="logoUrl">
+          <img class="security-logo" [src]="logoUrl">
+        </ng-container>
+
         <div class="third-party-container" style="margin: 0 auto; display: table;">
           <button mdc-button type="button" *ngFor="let option of thirdPartyOptions" style="margin: 0 0 0.5em;"
             (click)="onThirdPartyClick(option.value)" [ngClass]="option.color">
-            <mdc-icon mdcListItemGraphic *ngIf="option.icon" fontSet="mdi" fontIcon="mdi-{{option.icon}}"></mdc-icon>
+            <mdc-icon *ngIf="option.icon" fontSet="mdi" fontIcon="mdi-{{option.icon}}"></mdc-icon>
             {{ option.label }}
           </button>
         </div>
@@ -47,6 +51,8 @@ import { User } from '../models/user.model';
 })
 
 export class LoginFormComponent {
+
+  @Input() logoUrl = null;
 
   @Input() thirdPartyOptions: {
     label: string;

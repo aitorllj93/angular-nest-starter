@@ -4,7 +4,7 @@ import { ErrorStateMatcher, MdcIconRegistry } from '@angular-mdc/web';
 
 import { SecurityModule } from '../app/security/security.module';
 import { action } from '@storybook/addon-actions';
-import { object } from '@storybook/addon-knobs';
+import { object, text } from '@storybook/addon-knobs';
 import { linkTo } from '@storybook/addon-links';
 
 export default {
@@ -21,6 +21,7 @@ export const LoginForm = () => ({
   template: `
     <div class="storybook-wrapper">
       <app-login-form
+        [logoUrl]="logoUrl"
         [thirdPartyOptions]="thirdPartyOptions"
         (thirdPartyClick)="thirdPartyClick($event)"
         (submitForm)="submitForm($event)"
@@ -30,6 +31,7 @@ export const LoginForm = () => ({
     </div>
   `,
   props: {
+    logoUrl: text('Logo URL', 'assets/shield.png'),
     thirdPartyOptions: object('Third Party Options', [
       { label: 'Google', value: 'google', icon: 'google', color: 'button-google' },
       { label: 'Microsoft', value: 'microsoft', icon: 'microsoft', color: 'button-microsoft' },
@@ -51,6 +53,7 @@ export const RegisterForm = () => ({
   template: `
     <div class="storybook-wrapper">
       <app-register-form
+        [logoUrl]="logoUrl"
         [thirdPartyOptions]="thirdPartyOptions"
         (thirdPartyClick)="thirdPartyClick($event)"
         (submitForm)="submitForm($event)"
@@ -60,6 +63,7 @@ export const RegisterForm = () => ({
     </div>
   `,
   props: {
+    logoUrl: text('Logo URL', 'assets/shield.png'),
     thirdPartyOptions: object('Third Party Options', [
       { label: 'Google', value: 'google', icon: 'google', color: 'button-google' },
       { label: 'Microsoft', value: 'microsoft', icon: 'microsoft', color: 'button-microsoft' },
@@ -81,11 +85,13 @@ export const ForgotPasswordForm = () => ({
   template: `
     <div class="storybook-wrapper">
       <app-forgot-password-form
+        [logoUrl]="logoUrl"
         (submitForm)="submitForm($event)">
       </app-forgot-password-form>
     </div>
   `,
   props: {
+    logoUrl: text('Logo URL', 'assets/shield.png'),
     submitForm: linkTo('Feature - Security', 'Reset Password Form')
   }
 });
@@ -94,19 +100,21 @@ ForgotPasswordForm.story = {
   name: 'Forgot Password Form'
 };
 
-export const ResetPasswordForm = () => ({
+export const ChangePasswordForm = () => ({
   template: `
     <div class="storybook-wrapper">
-      <app-reset-password-form
+      <app-change-password-form
+        [logoUrl]="logoUrl"
         (submitForm)="submitForm($event)">
-      </app-reset-password-form>
+      </app-change-password-form>
     </div>
   `,
   props: {
+    logoUrl: text('Logo URL', 'assets/shield.png'),
     submitForm: action('On Submit Form')
   }
 });
 
-ResetPasswordForm.story = {
+ChangePasswordForm.story = {
   name: 'Reset Password Form'
 };

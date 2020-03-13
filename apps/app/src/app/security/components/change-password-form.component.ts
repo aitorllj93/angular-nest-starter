@@ -1,15 +1,19 @@
 
-import { Component, Output, EventEmitter } from '@angular/core';
+import { Component, Output, EventEmitter, Input } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 import { FieldIsSameValidator } from '../../ui/forms/validators/field-is-same.validator';
 
 @Component({
-  selector: 'app-reset-password-form',
+  selector: 'app-change-password-form',
   template: `
     <mdc-card  style="padding: 1em;">
 
       <form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+        <ng-container *ngIf="logoUrl">
+          <img class="security-logo" [src]="logoUrl">
+        </ng-container>
 
         <mdc-form-field fluid>
           <mdc-text-field label="New Password" outlined formControlName="password" type="password">
@@ -35,7 +39,9 @@ import { FieldIsSameValidator } from '../../ui/forms/validators/field-is-same.va
     </mdc-card>
   `
 })
-export class ResetPasswordFormComponent {
+export class ChangePasswordFormComponent {
+
+  @Input() logoUrl = null;
 
   @Output() submitForm = new EventEmitter<{
     password: string;
