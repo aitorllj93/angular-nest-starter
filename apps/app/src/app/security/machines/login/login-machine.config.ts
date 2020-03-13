@@ -20,8 +20,7 @@ export const loginMachineContext: LoginContext = {
     username: '',
     bio: '',
     image: ''
-  },
-  errors: []
+  }
 };
 
 export const loginMachineConfig: MachineConfig<

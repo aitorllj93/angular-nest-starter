@@ -24,7 +24,6 @@ export class LoginMachine {
     ...loginMachineConfig,
     context: {
       user: this.storage.retrieve('sessionUser') || loginMachineContext.user,
-      errors: loginMachineContext.errors,
     }
   };
 

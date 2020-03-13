@@ -51,5 +51,4 @@ export interface LoginSchema {
 
 export interface LoginContext {
   user: User;
-  errors: string[];
 }
