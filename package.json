@@ -50,6 +50,7 @@
     "@swimlane/ngx-charts": "^13.0.2",
     "@swimlane/ngx-datatable": "^16.0.3",
     "core-js": "^2.5.4",
+    "ngx-toastr": "^12.0.0",
     "ngx-webstorage": "^5.0.0",
     "reflect-metadata": "^0.1.13",
     "rxjs": "~6.5.0",

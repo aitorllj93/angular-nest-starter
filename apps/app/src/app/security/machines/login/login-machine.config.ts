@@ -1,7 +1,5 @@
 import { MachineConfig } from 'xstate';
 
-import { MACHINE_FINAL_TYPE } from '../../../core/machines/machines.constants';
-
 import {
   LoginSchema,
   LoginContext,
@@ -15,7 +13,7 @@ import {
 
 import { LoginEvent } from './login-machine.events';
 
-export const context: LoginContext = {
+export const loginMachineContext: LoginContext = {
   user: {
     email: '',
     token: '',
@@ -26,13 +24,13 @@ export const context: LoginContext = {
   errors: []
 };
 
-export const authMachineConfig: MachineConfig<
+export const loginMachineConfig: MachineConfig<
   LoginContext,
   LoginSchema,
   LoginEvent
 > = {
   id: LOGIN_MACHINE_ID,
-  context,
+  context: loginMachineContext,
   initial: LOGIN_MACHINE_STATES.BOOT,
   states: {
     [LOGIN_MACHINE_STATES.BOOT]: {
@@ -73,7 +71,7 @@ export const authMachineConfig: MachineConfig<
         },
         [LOGIN_MACHINE_TRANSITIONS.LOGIN_FAILURE]: {
           target: LOGIN_MACHINE_STATES.LOGGED_OUT,
-          actions: [LOGIN_MACHINE_ACTIONS.ASSIGN_ERRORS]
+          actions: [LOGIN_MACHINE_ACTIONS.NOTIFY_ERRORS]
         }
       }
     },
@@ -89,7 +87,7 @@ export const authMachineConfig: MachineConfig<
         },
         [LOGIN_MACHINE_TRANSITIONS.LOGOUT_FAILURE]: {
           target: LOGIN_MACHINE_STATES.LOGGED_OUT,
-          actions: [LOGIN_MACHINE_ACTIONS.UNASSIGN_USER, LOGIN_MACHINE_ACTIONS.LOGOUT_SUCCESS]
+          actions: [LOGIN_MACHINE_ACTIONS.NOTIFY_ERRORS, LOGIN_MACHINE_ACTIONS.UNASSIGN_USER, LOGIN_MACHINE_ACTIONS.LOGOUT_SUCCESS]
         }
       }
     }

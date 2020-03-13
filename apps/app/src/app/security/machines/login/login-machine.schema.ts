@@ -26,7 +26,7 @@ export enum LOGIN_MACHINE_ACTIONS {
   UNASSIGN_USER = 'unassignUser',
   LOGIN_SUCCESS = 'loginSuccess',
   LOGOUT_SUCCESS = 'logoutSuccess',
-  ASSIGN_ERRORS = 'assignErrors'
+  NOTIFY_ERRORS = 'notifyErrors'
 }
 
 export enum LOGIN_MACHINE_SERVICES {

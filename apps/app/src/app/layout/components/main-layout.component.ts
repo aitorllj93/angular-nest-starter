@@ -15,6 +15,7 @@ import { LogoutSubmit } from '../../security/machines/login/login-machine.events
           </button>
         </mdc-top-app-bar-section>
         <mdc-top-app-bar-section align="end">
+          <span *ngIf="user$ | async as user">{{ user.username }}</span>
           <button mdcTopAppBarActionItem (click)="onLogoutClick()">
             <mdc-icon fontSet="mdi" fontIcon="mdi-logout"></mdc-icon>
           </button>
@@ -55,6 +56,8 @@ export class MainLayoutComponent {
     { label: 'Sent Mail', icon: 'send', activated: false },
     { label: 'Drafts', icon: 'email-open', activated: false }
   ];
+
+  user$ = this.loginMachine.user$;
 
   constructor(
     private loginMachine: LoginMachine

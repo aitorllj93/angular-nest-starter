@@ -2,15 +2,16 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { assign, MachineOptions, Machine, interpret } from 'xstate';
+import { assign, MachineOptions, Machine, interpret, MachineConfig } from 'xstate';
 import { of, from } from 'rxjs';
-import { map, catchError } from 'rxjs/operators';
+import { map, catchError, tap } from 'rxjs/operators';
 
 import { LocalStorageService } from 'ngx-webstorage';
+import { ToastrService } from 'ngx-toastr';
 
 import { AuthService } from '../../services/auth.service';
 
-import { authMachineConfig } from './login-machine.config';
+import { loginMachineConfig, loginMachineContext } from './login-machine.config';
 import { LoginSchema, LoginContext, LOGIN_MACHINE_SERVICES, LOGIN_MACHINE_GUARDS, LOGIN_MACHINE_ACTIONS } from './login-machine.schema';
 import { LoginSuccess, LoginEvent, LoginFail, LogoutSuccess, LogoutFail } from './login-machine.events';
 
@@ -19,13 +20,19 @@ import { LoginSuccess, LoginEvent, LoginFail, LogoutSuccess, LogoutFail } from '
 })
 export class LoginMachine {
 
-  config = authMachineConfig;
+  config: MachineConfig<LoginContext, LoginSchema, LoginEvent> = {
+    ...loginMachineConfig,
+    context: {
+      user: this.storage.retrieve('sessionUser') || loginMachineContext.user,
+      errors: loginMachineContext.errors,
+    }
+  };
 
   services = {
 
     [LOGIN_MACHINE_SERVICES.REQUEST_LOGIN]: (_, event) =>
       this.auth
-        .login({ email: event.username, password: event.password })
+        .login({ username: event.username, password: event.password })
         .pipe(
           map(user => new LoginSuccess(user)),
           catchError(result => of(new LoginFail(result.error.errors)))
@@ -55,11 +62,11 @@ export class LoginMachine {
       user: null
     })),
 
-    [LOGIN_MACHINE_ACTIONS.ASSIGN_ERRORS]: assign<LoginContext, LoginFail>((_, event) => ({
-      errors: Object.keys(event.errors || {}).map(
-        key => `${key} ${event.errors[key]}`
-      )
-    })),
+    [LOGIN_MACHINE_ACTIONS.NOTIFY_ERRORS]: (_, event) => {
+      event.errors.forEach(error => {
+        this.toast.error(error);
+      });
+    },
 
     [LOGIN_MACHINE_ACTIONS.LOGIN_SUCCESS]: (ctx, _) => {
       this.storage.store('sessionToken', ctx.user.token);
@@ -87,11 +94,16 @@ export class LoginMachine {
   service = interpret<LoginContext, LoginSchema, LoginEvent>(this.machine, { devTools: true }).start();
 
   state$ = from(this.service);
+  context$ = this.state$.pipe(map(state => state.context));
+
+  user$ = this.context$.pipe(map(context => context.user));
+  token$ = this.context$.pipe(map(context => context.user.token));
 
   constructor(
     private auth: AuthService,
     private router: Router,
     private storage: LocalStorageService,
+    private toast: ToastrService,
   ) {}
 
   send(event: LoginEvent) {

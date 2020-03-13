@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 
-import { of } from 'rxjs';
+import { of, throwError } from 'rxjs';
 
 import { User } from '../models/user.model';
 
@@ -10,9 +10,17 @@ import { User } from '../models/user.model';
 export class AuthService {
 
   login(user: User) {
-    return of({
-      ...user,
-      token: '1234'
+    if (user.username === 'test') {
+      return of({
+        ...user,
+        token: '1234'
+      });
+    }
+
+    return throwError({
+      error: {
+        errors: ['Invalid user']
+      }
     });
   }
 

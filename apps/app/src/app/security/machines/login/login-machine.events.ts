@@ -8,7 +8,7 @@ export class Init {
 
 export class LoginSubmit {
   readonly type = LOGIN_MACHINE_TRANSITIONS.LOGIN_SUBMIT;
-  constructor(public email: string, public password: string) {}
+  constructor(public username: string, public password: string) {}
 }
 
 export class LoginFail {

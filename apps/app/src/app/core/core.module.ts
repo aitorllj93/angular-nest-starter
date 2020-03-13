@@ -6,6 +6,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 
 import {NgxWebstorageModule} from 'ngx-webstorage';
+import { ToastrModule } from 'ngx-toastr';
+
 
 import { UIModule } from '../ui/ui.module';
 
@@ -17,6 +19,7 @@ import { UIModule } from '../ui/ui.module';
     RouterModule,
 
     NgxWebstorageModule.forRoot(),
+    ToastrModule.forRoot(),
 
     UIModule,
   ],
