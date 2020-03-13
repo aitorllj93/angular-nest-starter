@@ -1,7 +1,9 @@
 import { moduleMetadata } from '@storybook/angular';
 
 import { NgxChartsModule } from '@swimlane/ngx-charts';
-import { object } from '@storybook/addon-knobs';
+import { object, boolean, text } from '@storybook/addon-knobs';
+
+import populationByYears from './data/charts/population-by-years';
 
 export default {
   title: 'UI - Charts',
@@ -30,88 +32,21 @@ export const AreaChartStacked = () => ({
     </ngx-charts-area-chart-stacked>
   `,
   props: {
-    items: object('Items', [
-      {
-        "name": "Germany",
-        "series": [
-          {
-            "name": "1990",
-            "value": 62000000
-          },
-          {
-            "name": "2010",
-            "value": 73000000
-          },
-          {
-            "name": "2011",
-            "value": 89400000
-          }
-        ]
-      },
-
-      {
-        "name": "USA",
-        "series": [
-          {
-            "name": "1990",
-            "value": 250000000
-          },
-          {
-            "name": "2010",
-            "value": 309000000
-          },
-          {
-            "name": "2011",
-            "value": 311000000
-          }
-        ]
-      },
-
-      {
-        "name": "France",
-        "series": [
-          {
-            "name": "1990",
-            "value": 58000000
-          },
-          {
-            "name": "2010",
-            "value": 50000020
-          },
-          {
-            "name": "2011",
-            "value": 58000000
-          }
-        ]
-      },
-      {
-        "name": "UK",
-        "series": [
-          {
-            "name": "1990",
-            "value": 57000000
-          },
-          {
-            "name": "2010",
-            "value": 62000000
-          }
-        ]
-      }
-    ]),
     // options
-    legend: true,
-    showLabels: true,
-    animations: true,
-    xAxis: true,
-    yAxis: true,
-    showYAxisLabel: true,
-    showXAxisLabel: true,
-    xAxisLabel: 'Year',
-    yAxisLabel: 'Population',
-    timeline: true,
-    colorScheme: {
+    legend: boolean('Legend', true),
+    showLabels: boolean('Show Labels', true),
+    animations: boolean('Animations', true),
+    xAxis: boolean('X Axis', true),
+    yAxis: boolean('Y Axis', true),
+    showYAxisLabel: boolean('Show Y Axis Label', true),
+    showXAxisLabel: boolean('Show X Axis Label', true),
+    xAxisLabel: text('X Axis Label', 'Year'),
+    yAxisLabel: text('Y Axis Label', 'Population'),
+    timeline: boolean('Legend', true),
+    colorScheme: object('Color Scheme', {
       domain: ['#5AA454', '#E44D25', '#CFC0BB', '#7aa3e5', '#a8385d', '#aae3f5']
-    },
+    }),
+    items: object('Items', populationByYears),
   }
 });
 
