@@ -27,7 +27,9 @@
     "help": "nx help",
     "postinstall": "ngcc --properties es2015 browser module main --first-only --create-ivy-entry-points",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "node_modules/.bin/build-storybook"
+    "build-storybook": "node_modules/.bin/build-storybook",
+    "docker:build:app": "docker build -t angular-nest-starter-app:latest -f deployment/docker/app.dockerfile .",
+    "docker:build:api": "docker build -t angular-nest-starter-api:latest -f deployment/docker/api.dockerfile ."
   },
   "private": true,
   "dependencies": {
