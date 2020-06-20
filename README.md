@@ -12,22 +12,25 @@ Includes the following packages:
 
 | Package                 | Version |
 |-------------------------|---------|
-| [Angular](https://angular.io/)                 | 9.0.0   |
-| [NestJS](https://nestjs.com/)                  | 6.8.3   |
-| [rxjs](https://rxjs.dev/)                    | 6.5.0   |
-| [xstate]()                                   | 4.8.0   |
-| [@storybook/angular](https://storybook.js.org/)      | 5.3.14  |
-| [@angular/cdk](https://material.angular.io/cdk/categories)            | 9.1.1   |
+| [Angular](https://angular.io/)                 | 9.1.11   |
+| [NestJS](https://nestjs.com/)                  | 7.2.0   |
+| [rxjs](https://rxjs.dev/)                    | 6.5.5   |
+| [xstate]()                                   | 4.10.0   |
+| [@storybook/angular](https://storybook.js.org/)      | 5.3.19  |
+| [@angular/cdk](https://material.angular.io/cdk/categories)            | 9.2.4   |
 | [@angular/flex-layout](https://github.com/angular/flex-layout)    | 9.0.0   |
 | [@angular-mdc/web](https://trimox.github.io/angular-mdc-web)      | 5.1.1   |
-| [@swimlane/ngx-datatable](https://swimlane.gitbook.io/ngx-datatable/) | 16.0.3  |
-| [@ng-select/ng-select](https://ng-select.github.io/)    | 3.7.3   |
+| [@swimlane/ngx-datatable](https://swimlane.gitbook.io/ngx-datatable/) | 17.0.0  |
+| [@swimlane/ngx-charts](https://swimlane.gitbook.io/ngx-charts/) | 14.0.0  |
+| [@ng-select/ng-select](https://ng-select.github.io/)    | 4.0.1   |
+| [ngx-swiper-wrapper](https://github.com/zefoy/ngx-swiper-wrapper)    | 9.0.1   |
+
 
 ## Features
 
 ### UI Module + Storybook
 
-Includes `angular-mdc`, `ngx-datatable` & `ng-select`
+Includes `angular-mdc`, `ngx-datatable`, `ng-select`, `ngx-charts`...
 
 [Storybook Demo](https://d3v0ps.github.io/angular-nest-starter/)
 
