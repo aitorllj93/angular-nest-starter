@@ -1,6 +1,6 @@
 
 import { Entity, Column, PrimaryGeneratedColumn, PrimaryColumn, Generated, ObjectID, ObjectIdColumn } from 'typeorm';
-import { ObjectType, Field } from 'type-graphql';
+import { ObjectType, Field } from '@nestjs/graphql';
 import { Json } from '../common/scalars/json.scalar';
 
 @Entity()
