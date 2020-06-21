@@ -1,0 +1,33 @@
+
+@use '@material/icon-button/_index' as icon-button;
+@use '@material/ripple/_index' as ripple;
+@use '@material/theme';
+
+.mdc-icon-button {
+  .mdi {
+    position: relative;
+    top: -5px;
+  }
+}
+
+.demo-icon-custom-colors {
+  $color: orange;
+
+  @include theme.prop(color, $color);
+}
+
+.demo-icon-button-custom {
+  @include icon-button.ink-color(orange);
+  @include ripple.states-base-color(orange);
+  @include ripple.states-hover-opacity(.09);
+  @include ripple.states-focus-opacity(.26);
+  @include ripple.states-press-opacity(.35);
+}
+
+.demo-icon-button-primary {
+  @include icon-button.ink-color(theme.$primary);
+}
+
+.demo-icon-button-secondary {
+  @include icon-button.ink-color(theme.$secondary);
+}
