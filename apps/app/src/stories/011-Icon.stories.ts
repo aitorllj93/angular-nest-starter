@@ -1,6 +1,4 @@
 
-
-
 import { moduleMetadata } from '@storybook/angular';
 import { MdcIconRegistry, MdcIconModule, MdcIconButtonModule } from '@angular-mdc/web';
 
