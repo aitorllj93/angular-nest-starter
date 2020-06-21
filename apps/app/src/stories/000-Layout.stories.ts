@@ -7,7 +7,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import markdown from '@angular/flex-layout/README.md';
 
 export default {
-  title: 'UI - Layout',
+  title: 'Foundation',
   decorators: [
     moduleMetadata({
       imports: [FlexLayoutModule],
@@ -15,7 +15,7 @@ export default {
   ],
 };
 
-export const SimpleLayout = () => ({
+export const FlexLayout = () => ({
   template: `
     <div class="storybook-wrapper" style="height: 60vh;">
 
@@ -51,8 +51,8 @@ export const SimpleLayout = () => ({
   }
 });
 
-SimpleLayout.story = {
-  name: 'Simple Layout',
+FlexLayout.story = {
+  name: 'Flex Layout',
   parameters: {
     notes: {
       'Developer README': markdown
