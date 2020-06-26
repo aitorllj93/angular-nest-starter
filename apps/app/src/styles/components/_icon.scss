@@ -3,11 +3,19 @@
 @use '@material/ripple/_index' as ripple;
 @use '@material/theme';
 
+@mixin adjust-icon {
+  position: relative;
+  top: -5px;
+}
+
 .mdc-icon-button {
   .mdi {
-    position: relative;
-    top: -5px;
+    @include adjust-icon;
   }
+}
+
+.mdc-tab__icon.mdi {
+  @include adjust-icon;
 }
 
 .demo-icon-custom-colors {
