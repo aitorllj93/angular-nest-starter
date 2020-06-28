@@ -1,0 +1,8 @@
+
+@use '@material/typography/mdc-typography';
+
+@use './styles/base/variables' as variables;
+
+.text-gray {
+  color: variables.$secondary-text;
+}

@@ -1,8 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 
-$primary: #1d65ba;
-$secondary: #de0031;
-$white: #fff;
+@use './styles/base/variables' as variables;
 
 @use './styles/layouts/body';
 @use './styles/layouts/storybook';
@@ -10,9 +8,9 @@ $white: #fff;
 
 
 @use '@material/theme' with (
-  $primary: $primary,
-  $secondary: $secondary,
-  $background: $white,
+  $primary: variables.$primary,
+  $secondary: variables.$secondary,
+  $background: variables.$white,
 );
 
 @use '@material/elevation/mdc-elevation';
@@ -40,7 +38,9 @@ $white: #fff;
 @use './styles/components/select';
 @use './styles/components/slider';
 @use './styles/components/snackbar';
+@use './styles/components/spacings';
 @use './styles/components/switch';
+@use './styles/components/typography';
 @use './styles/components/toast';
 
 @use './styles/modules/security';
