@@ -6,4 +6,6 @@
 .storybook-wrapper {
   max-width: 60vw;
   margin: 10px auto 0 auto;
+  height: 100vh;
+  overflow: auto;
 }

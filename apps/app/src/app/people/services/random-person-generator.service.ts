@@ -2,7 +2,6 @@
 import { Injectable } from '@angular/core';
 
 import { Chance } from 'chance';
-import differenceInYears from 'date-fns/differenceInYears';
 import { Person } from '../models/person';
 
 const chance = new Chance();
