@@ -1,0 +1,105 @@
+
+@use '@material/slider/_index' as slider;
+@use '@material/theme/color-palette' as material-color;
+
+.person-attributes-text-strength {
+  color: material-color.$red-700 !important;
+}
+
+.person-attributes-text-constitution {
+  color: material-color.$orange-700 !important;
+}
+
+.person-attributes-text-dexterity {
+  color: material-color.$green-700 !important;
+}
+
+.person-attributes-text-intelligence {
+  color: material-color.$blue-700 !important;
+}
+
+.person-attributes-text-wisdom {
+  color: material-color.$yellow-700 !important;
+}
+
+.person-attributes-text-charisma {
+  color: material-color.$purple-700 !important;
+}
+
+.person-attributes-slider-strength {
+  @include slider.highlight-color(material-color.$red-700);
+  @include slider.rail-color(material-color.$red-700, 1);
+
+  .mdc-slider__track {
+    background-color: material-color.$red-700 !important;
+  }
+
+  .mdc-slider__thumb {
+    fill: material-color.$red-700 !important;
+  }
+}
+
+.person-attributes-slider-constitution {
+  @include slider.highlight-color(material-color.$orange-700);
+  @include slider.rail-color(material-color.$orange-700, 1);
+
+  .mdc-slider__track {
+    background-color: material-color.$orange-700 !important;
+  }
+
+  .mdc-slider__thumb {
+    fill: material-color.$orange-700 !important;
+  }
+}
+
+.person-attributes-slider-dexterity {
+  @include slider.highlight-color(material-color.$green-700);
+  @include slider.rail-color(material-color.$green-700, 1);
+
+  .mdc-slider__track {
+    background-color: material-color.$green-700 !important;
+  }
+
+  .mdc-slider__thumb {
+    fill: material-color.$green-700 !important;
+  }
+}
+
+.person-attributes-slider-intelligence {
+  @include slider.highlight-color(material-color.$blue-700);
+  @include slider.rail-color(material-color.$blue-700, 1);
+
+  .mdc-slider__track {
+    background-color: material-color.$blue-700 !important;
+  }
+
+  .mdc-slider__thumb {
+    fill: material-color.$blue-700 !important;
+  }
+}
+
+.person-attributes-slider-wisdom {
+  @include slider.highlight-color(material-color.$yellow-700);
+  @include slider.rail-color(material-color.$yellow-700, 1);
+
+  .mdc-slider__track {
+    background-color: material-color.$yellow-700 !important;
+  }
+
+  .mdc-slider__thumb {
+    fill: material-color.$yellow-700 !important;
+  }
+}
+
+.person-attributes-slider-charisma {
+  @include slider.highlight-color(material-color.$purple-700);
+  @include slider.rail-color(material-color.$purple-700, 1);
+
+  .mdc-slider__track {
+    background-color: material-color.$purple-700 !important;
+  }
+
+  .mdc-slider__thumb {
+    fill: material-color.$purple-700 !important;
+  }
+}

@@ -2,7 +2,7 @@
 import { Injectable } from '@angular/core';
 
 import { Chance } from 'chance';
-import { Person } from '../models/person';
+import { Person, PersonAttributes } from '../models/person';
 
 const chance = new Chance();
 
@@ -18,6 +18,14 @@ export class RandomPersonGeneratorService {
     const birthday = chance.birthday();
     const address = `${chance.address()}, ${chance.city()}, ${chance.zip()}, ${chance.country()}`;
     const identifier = chance.cf({ first: givenName, last: familyName, gender, birthday });
+    const attributes: PersonAttributes = {
+      strength: chance.integer({ min: 1, max: 20 }),
+      constitution: chance.integer({ min: 1, max: 20 }),
+      dexterity: chance.integer({ min: 1, max: 20 }),
+      intelligence: chance.integer({ min: 1, max: 20 }),
+      wisdom: chance.integer({ min: 1, max: 20 }),
+      charisma: chance.integer({ min: 1, max: 20 }),
+    }
 
     return new Person({
       identifier,
@@ -26,7 +34,8 @@ export class RandomPersonGeneratorService {
       image,
       birthday,
       gender,
-      address
+      address,
+      attributes
     })
   }
 

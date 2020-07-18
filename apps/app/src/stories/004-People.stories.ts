@@ -31,10 +31,26 @@ export const PersonIdentificationList = () => ({
   }
 })
 
+export const PersonDetails = () => ({
+  template: `
+    <div class="storybook-wrapper">
+      <app-person-details></app-person-details>
+    </div>
+  `
+})
+
 export const PersonIdentificationCard = () => ({
   template: `
     <div class="storybook-wrapper">
       <app-person-identification-card></app-person-identification-card>
+    </div>
+  `
+})
+
+export const PersonAttributesCard = () => ({
+  template: `
+    <div class="storybook-wrapper">
+      <app-person-attributes-card></app-person-attributes-card>
     </div>
   `
 })

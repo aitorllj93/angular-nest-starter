@@ -11,6 +11,7 @@ export class Person {
   birthday: Date;
   age: number;
   address: string;
+  attributes: PersonAttributes;
 
   constructor(person: Partial<Person>) {
     Object.assign(this, person);
@@ -21,4 +22,13 @@ export class Person {
       this.age = differenceInYears(new Date(), this.birthday);
     }
   }
+}
+
+export class PersonAttributes {
+  strength: number;
+  constitution: number;
+  dexterity: number;
+  intelligence: number;
+  wisdom: number;
+  charisma: number;
 }
