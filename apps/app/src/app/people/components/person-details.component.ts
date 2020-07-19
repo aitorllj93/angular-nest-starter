@@ -7,7 +7,8 @@ import { RandomPersonGeneratorService } from '../services/random-person-generato
   template: `
 
     <app-person-identification-card [person]="person" class="d-block mb-1"></app-person-identification-card>
-    <app-person-attributes-card [person]="person"></app-person-attributes-card>
+    <app-person-attributes-card [person]="person" class="d-block mb-1"></app-person-attributes-card>
+    <app-person-skills-card [person]="person"></app-person-skills-card>
 
   `
 })

@@ -12,6 +12,7 @@ export class Person {
   age: number;
   address: string;
   attributes: PersonAttributes;
+  skills: PersonSkill[];
 
   constructor(person: Partial<Person>) {
     Object.assign(this, person);
@@ -31,4 +32,10 @@ export class PersonAttributes {
   intelligence: number;
   wisdom: number;
   charisma: number;
+}
+
+export class PersonSkill {
+  label: string;
+  level: number;
+  detail: string;
 }

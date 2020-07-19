@@ -54,3 +54,11 @@ export const PersonAttributesCard = () => ({
     </div>
   `
 })
+
+export const PersonSkillsCard = () => ({
+  template: `
+    <div class="storybook-wrapper">
+      <app-person-skills-card></app-person-skills-card>
+    </div>
+  `
+})
