@@ -5,7 +5,6 @@ import { CommonModule } from '@angular/common';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MdcCardModule, MdcIconModule, MdcSliderModule } from '@angular-mdc/web';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
-import { SatPopoverModule } from '@ncstate/sat-popover';
 
 import { PersonIdentificationCardComponent } from './components/person-identification-card.component';
 import { PersonIdentificationListComponent } from './components/person-identification-list.component';
@@ -21,7 +20,6 @@ import { PersonSkillsCardComponent } from './components/person-skills-card.compo
     MdcIconModule,
     MdcSliderModule,
     NgxDatatableModule,
-    SatPopoverModule,
   ],
   exports: [
     PersonIdentificationCardComponent,
