@@ -7,6 +7,10 @@ import { RandomPersonGeneratorService } from '../services/random-person-generato
     <mdc-card>
       <div mdcBody class="p-1">
 
+        <div mdcHeadline5 class="mb-1" *ngIf="showHeader">
+          Attributes
+        </div>
+
         <div fxLayout="row" fxFlexFill>
           <div [fxFlex]="50" class="px-1">
 
@@ -59,6 +63,8 @@ import { RandomPersonGeneratorService } from '../services/random-person-generato
 })
 
 export class PersonAttributesCardComponent implements OnInit {
+
+  @Input() showHeader = true;
 
   @Input() person = this.randomPersonGenerator.generate();
 

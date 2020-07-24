@@ -8,16 +8,20 @@ import { RandomPersonGeneratorService } from '../services/random-person-generato
     <mdc-card>
       <div mdcBody class="p-1">
 
+        <div mdcHeadline5 class="mb-1" *ngIf="showHeader">
+          Skills
+        </div>
+
         <div fxLayout="row wrap" fxFlexFill>
           <ng-container *ngFor="let skill of person.skills">
             <div [fxFlex]="25" class="p-1" [ngxTippy]="tooltip"
-              [tippyProps]="{
-                allowHTML: true,
-                interactive: true,
-                theme: 'material'
-              }">
-              <mdc-icon fontSet="mdi" fontIcon="mdi-star"></mdc-icon>
-              {{ skill.label }}
+                [tippyProps]="{
+                  allowHTML: true,
+                  interactive: true,
+                  theme: 'material'
+                }">
+                <mdc-icon fontSet="mdi" fontIcon="mdi-star"></mdc-icon>
+                {{ skill.label }}
             </div>
             <div #tooltip>
               Level:
@@ -42,6 +46,8 @@ import { RandomPersonGeneratorService } from '../services/random-person-generato
 })
 
 export class PersonSkillsCardComponent implements OnInit {
+
+  @Input() showHeader = true;
 
   @Input() person = this.randomPersonGenerator.generate();
 

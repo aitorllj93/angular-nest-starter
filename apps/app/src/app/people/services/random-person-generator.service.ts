@@ -33,6 +33,7 @@ export class RandomPersonGeneratorService {
         detail: chance.paragraph()
       })
     );
+    const notes = chance.paragraph();
 
     return new Person({
       identifier,
@@ -43,7 +44,8 @@ export class RandomPersonGeneratorService {
       gender,
       address,
       attributes,
-      skills
+      skills,
+      notes
     })
   }
 

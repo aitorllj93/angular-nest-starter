@@ -13,6 +13,7 @@ export class Person {
   address: string;
   attributes: PersonAttributes;
   skills: PersonSkill[];
+  notes: string;
 
   constructor(person: Partial<Person>) {
     Object.assign(this, person);
