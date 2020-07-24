@@ -20,7 +20,19 @@ import { RandomPersonGeneratorService } from '../services/random-person-generato
               {{ skill.label }}
             </div>
             <div #tooltip>
-              {{ skill.detail }}
+              Level:
+              <mdc-icon *ngIf="skill.level > 0" fontSet="mdi" fontIcon="mdi-star"></mdc-icon>
+              <mdc-icon *ngIf="skill.level <= 0" fontSet="mdi" fontIcon="mdi-star-outline"></mdc-icon>
+              <mdc-icon *ngIf="skill.level > 1" fontSet="mdi" fontIcon="mdi-star"></mdc-icon>
+              <mdc-icon *ngIf="skill.level <= 1" fontSet="mdi" fontIcon="mdi-star-outline"></mdc-icon>
+              <mdc-icon *ngIf="skill.level > 2" fontSet="mdi" fontIcon="mdi-star"></mdc-icon>
+              <mdc-icon *ngIf="skill.level <= 2" fontSet="mdi" fontIcon="mdi-star-outline"></mdc-icon>
+              <mdc-icon *ngIf="skill.level > 3" fontSet="mdi" fontIcon="mdi-star"></mdc-icon>
+              <mdc-icon *ngIf="skill.level <= 3" fontSet="mdi" fontIcon="mdi-star-outline"></mdc-icon>
+              <mdc-icon *ngIf="skill.level > 4" fontSet="mdi" fontIcon="mdi-star"></mdc-icon>
+              <mdc-icon *ngIf="skill.level <= 4" fontSet="mdi" fontIcon="mdi-star-outline"></mdc-icon>
+              <br/>
+              Description: {{ skill.detail }}
             </div>
           </ng-container>
         </div>
