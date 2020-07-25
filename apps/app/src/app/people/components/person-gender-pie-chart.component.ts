@@ -1,8 +1,7 @@
 
-import { Component, OnInit, Input } from '@angular/core';
-
-import { RandomPersonGeneratorService } from '../services/random-person-generator.service';
-import { Subject } from 'rxjs';
+import { Component, Input } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Select } from '@ngxs/store';
 
 @Component({
   selector: 'app-person-gender-pie-chart',
@@ -30,32 +29,9 @@ import { Subject } from 'rxjs';
   `
 })
 
-export class PersonGenderPieChartComponent implements OnInit {
+export class PersonGenderPieChartComponent {
 
   @Input() showHeader = true;
 
-  @Input() people$ = this.randomPersonGenerator.generateMany();
-
-  @Input() results$ = new Subject<any>();
-
-  constructor(
-    private randomPersonGenerator: RandomPersonGeneratorService
-  ) { }
-
-  ngOnInit() {
-    this.people$.subscribe(
-      (people) => {
-        this.results$.next([
-          {
-            name: 'Female',
-            value: people.filter(person => person.gender === 'female').length
-          },
-          {
-            name: 'Male',
-            value: people.filter(person => person.gender === 'male').length
-          },
-        ]);
-      }
-    );
-   }
+  @Select(state => state.peopleStore.genderPieChart) results$: Observable<any>;
 }

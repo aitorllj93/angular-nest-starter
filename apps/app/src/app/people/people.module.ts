@@ -8,6 +8,7 @@ import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import { NgxTippyModule } from 'ngx-tippy-wrapper';
 import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
+import { NgxsModule, Store, Select } from '@ngxs/store';
 
 import { PersonIdentificationCardComponent } from './components/person-identification-card.component';
 import { PersonIdentificationListComponent } from './components/person-identification-list.component';
@@ -18,6 +19,11 @@ import { PersonNotesCardComponent } from './components/person-notes-card.compone
 import { PersonGenderPieChartComponent } from './components/person-gender-pie-chart.component';
 import { PersonDashboardComponent } from './components/person-dashboard.component';
 import { PersonAgePieChartComponent } from './components/person-age-pie-chart.component';
+
+import { PeopleState } from './state/people.state';
+import { PeopleActions } from './state/people.actions';
+import { Observable } from 'rxjs';
+import { withLatestFrom } from 'rxjs/operators';
 
 @NgModule({
   imports: [
@@ -33,6 +39,7 @@ import { PersonAgePieChartComponent } from './components/person-age-pie-chart.co
     NgxTippyModule,
     NgxSkeletonLoaderModule,
     NgxChartsModule,
+    NgxsModule.forFeature([PeopleState]),
   ],
   exports: [
     PersonIdentificationCardComponent,
@@ -58,4 +65,21 @@ import { PersonAgePieChartComponent } from './components/person-age-pie-chart.co
   ],
   providers: [],
 })
-export class PeopleModule { }
+export class PeopleModule {
+
+  @Select(state => state.peopleStore.people) people$: Observable<any>;
+
+  constructor(
+    private store: Store
+  ) {
+    setTimeout(
+      () =>
+        this.store.dispatch(new PeopleActions.GenerateRandom(500))
+          .pipe(withLatestFrom(this.people$))
+          .subscribe(([_, people]) => {
+            this.store.dispatch(new PeopleActions.Select(people[0]));
+          }),
+      3000
+    )
+  }
+}

@@ -1,8 +1,7 @@
 
-import { Component, OnInit, Input } from '@angular/core';
-
-import { RandomPersonGeneratorService } from '../services/random-person-generator.service';
-import { Subject } from 'rxjs';
+import { Component, Input } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Select } from '@ngxs/store';
 
 @Component({
   selector: 'app-person-age-pie-chart',
@@ -30,44 +29,9 @@ import { Subject } from 'rxjs';
   `
 })
 
-export class PersonAgePieChartComponent implements OnInit {
+export class PersonAgePieChartComponent {
 
   @Input() showHeader = true;
 
-  @Input() people$ = this.randomPersonGenerator.generateMany();
-
-  @Input() results$ = new Subject<any>();
-
-  constructor(
-    private randomPersonGenerator: RandomPersonGeneratorService
-  ) { }
-
-  ngOnInit() {
-    this.people$.subscribe(
-      (people) => {
-        this.results$.next([
-          {
-            name: '< 18',
-            value: people.filter(person => person.age < 18).length
-          },
-          {
-            name: '>= 18 < 30',
-            value: people.filter(person => person.age >= 18 && person.age < 30).length
-          },
-          {
-            name: '>= 30 < 45',
-            value: people.filter(person => person.age >= 30 && person.age < 45).length
-          },
-          {
-            name: '>= 45 < 65',
-            value: people.filter(person => person.age >= 45 && person.age < 65).length
-          },
-          {
-            name: '>= 65',
-            value: people.filter(person => person.age >= 65).length
-          },
-        ]);
-      }
-    );
-   }
+  @Select(state => state.peopleStore.agePieChart) results$: Observable<any>;
 }

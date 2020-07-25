@@ -4,7 +4,7 @@ import { PeopleModule } from '../app/people/people.module';
 import { MdcIconRegistry } from '@angular-mdc/web';
 import { linkTo } from '@storybook/addon-links';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import { NgxsModule } from '@ngxs/store';
 
 export default {
   title: 'Feature - People',
@@ -12,10 +12,13 @@ export default {
     moduleMetadata({
       imports: [
         BrowserAnimationsModule,
+        NgxsModule.forRoot([], {
+          developmentMode: true
+        }),
         PeopleModule
       ],
       providers: [
-        MdcIconRegistry
+        MdcIconRegistry,
       ]
     })
   ]

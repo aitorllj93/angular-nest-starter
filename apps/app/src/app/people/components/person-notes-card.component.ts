@@ -1,5 +1,8 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { RandomPersonGeneratorService } from '../services/random-person-generator.service';
+import { Component, Input } from '@angular/core';
+import { Select } from '@ngxs/store';
+import { Observable } from 'rxjs';
+
+import { Person } from '../models/person';
 
 @Component({
   selector: 'app-person-notes-card',
@@ -24,15 +27,9 @@ import { RandomPersonGeneratorService } from '../services/random-person-generato
   `
 })
 
-export class PersonNotesCardComponent implements OnInit {
+export class PersonNotesCardComponent {
 
   @Input() showHeader = true;
 
-  @Input() person$ = this.randomPersonGenerator.generate();
-
-  constructor(
-    private randomPersonGenerator: RandomPersonGeneratorService
-  ) { }
-
-  ngOnInit() { }
+  @Select(state => state.peopleStore.selectedPerson) person$: Observable<Person>;
 }

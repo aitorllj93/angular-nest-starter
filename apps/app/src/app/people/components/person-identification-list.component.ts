@@ -1,8 +1,9 @@
 
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { ColumnMode } from '@swimlane/ngx-datatable';
+import { Select } from '@ngxs/store';
+import { Observable } from 'rxjs';
 
-import { RandomPersonGeneratorService } from '../services/random-person-generator.service';
 import { Person } from '../models/person';
 
 @Component({
@@ -65,19 +66,13 @@ import { Person } from '../models/person';
   `
 })
 
-export class PersonIdentificationListComponent implements OnInit {
+export class PersonIdentificationListComponent {
 
-  @Input() people$ = this.randomPersonGenerator.generateMany();
+  @Select(state => state.peopleStore.people) people$: Observable<Person[]>;
 
   @Output() rowClick = new EventEmitter<Person>();
 
   columnMode = ColumnMode.force;
-
-  constructor(
-    private randomPersonGenerator: RandomPersonGeneratorService
-  ) { }
-
-  ngOnInit() { }
 
   onActivate(event) {
     switch (event.type) {
