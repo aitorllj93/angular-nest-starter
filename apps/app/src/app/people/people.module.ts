@@ -7,6 +7,7 @@ import { MdcCardModule, MdcIconModule, MdcSliderModule, MdcButtonModule, MdcTypo
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import { NgxTippyModule } from 'ngx-tippy-wrapper';
 import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
+import { NgxChartsModule } from '@swimlane/ngx-charts';
 
 import { PersonIdentificationCardComponent } from './components/person-identification-card.component';
 import { PersonIdentificationListComponent } from './components/person-identification-list.component';
@@ -14,6 +15,9 @@ import { PersonAttributesCardComponent } from './components/person-attributes-ca
 import { PersonDetailsComponent } from './components/person-details.component';
 import { PersonSkillsCardComponent } from './components/person-skills-card.component';
 import { PersonNotesCardComponent } from './components/person-notes-card.component';
+import { PersonGenderPieChartComponent } from './components/person-gender-pie-chart.component';
+import { PersonDashboardComponent } from './components/person-dashboard.component';
+import { PersonAgePieChartComponent } from './components/person-age-pie-chart.component';
 
 @NgModule({
   imports: [
@@ -28,6 +32,7 @@ import { PersonNotesCardComponent } from './components/person-notes-card.compone
     NgxDatatableModule,
     NgxTippyModule,
     NgxSkeletonLoaderModule,
+    NgxChartsModule,
   ],
   exports: [
     PersonIdentificationCardComponent,
@@ -35,7 +40,10 @@ import { PersonNotesCardComponent } from './components/person-notes-card.compone
     PersonAttributesCardComponent,
     PersonSkillsCardComponent,
     PersonNotesCardComponent,
+    PersonGenderPieChartComponent,
+    PersonAgePieChartComponent,
     PersonDetailsComponent,
+    PersonDashboardComponent,
   ],
   declarations: [
     PersonIdentificationCardComponent,
@@ -43,7 +51,10 @@ import { PersonNotesCardComponent } from './components/person-notes-card.compone
     PersonAttributesCardComponent,
     PersonSkillsCardComponent,
     PersonNotesCardComponent,
+    PersonGenderPieChartComponent,
+    PersonAgePieChartComponent,
     PersonDetailsComponent,
+    PersonDashboardComponent,
   ],
   providers: [],
 })

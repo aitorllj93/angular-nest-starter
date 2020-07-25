@@ -3,6 +3,7 @@ import { moduleMetadata } from '@storybook/angular';
 import { PeopleModule } from '../app/people/people.module';
 import { MdcIconRegistry } from '@angular-mdc/web';
 import { linkTo } from '@storybook/addon-links';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 export default {
@@ -10,6 +11,7 @@ export default {
   decorators: [
     moduleMetadata({
       imports: [
+        BrowserAnimationsModule,
         PeopleModule
       ],
       providers: [
@@ -19,6 +21,13 @@ export default {
   ]
 }
 
+export const PersonDashboard = () => ({
+  template: `
+    <div class="storybook-wrapper">
+      <app-person-dashboard></app-person-dashboard>
+    </div>
+  `
+})
 
 export const PersonIdentificationList = () => ({
   template: `
@@ -29,6 +38,22 @@ export const PersonIdentificationList = () => ({
   props: {
     rowClick: linkTo('Feature - People', 'Person Details')
   }
+})
+
+export const PersonGenderPieChart = () => ({
+  template: `
+    <div class="storybook-wrapper">
+      <app-person-gender-pie-chart></app-person-gender-pie-chart>
+    </div>
+  `
+})
+
+export const PersonAgePieChart = () => ({
+  template: `
+    <div class="storybook-wrapper">
+      <app-person-age-pie-chart></app-person-age-pie-chart>
+    </div>
+  `
 })
 
 export const PersonDetails = () => ({
