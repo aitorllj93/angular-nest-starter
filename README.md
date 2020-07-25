@@ -15,6 +15,7 @@ Includes the following packages:
 | [Angular](https://angular.io/)                 | 9.1.11   |
 | [NestJS](https://nestjs.com/)                  | 7.2.0   |
 | [rxjs](https://rxjs.dev/)                    | 6.5.5   |
+| [@ngxs/store]()                                   | 3.6.2   |
 | [xstate]()                                   | 4.10.0   |
 | [@storybook/angular](https://storybook.js.org/)      | 5.3.19  |
 | [@angular/cdk](https://material.angular.io/cdk/categories)            | 9.2.4   |
@@ -37,6 +38,12 @@ Includes `angular-mdc`, `ngx-datatable`, `ng-select`, `ngx-charts`...
 <p align="center">
   <img src="https://raw.githubusercontent.com/d3v0ps/angular-nest-starter/master/apps/app/src/assets/storybook.png" width="600">
 </p>
+
+### Feature Modules + NGXS
+
+Includes example feature modules integrated with `ngxs`
+
+See them at [Storybook Demo](https://d3v0ps.github.io/angular-nest-starter/) 
 
 ## Development server
 
