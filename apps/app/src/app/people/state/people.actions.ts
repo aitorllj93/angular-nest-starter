@@ -14,7 +14,12 @@ export namespace PeopleActions {
 
   export class Select {
     static readonly type = '[People] Select Person';
-    constructor(public person: Person) {}
+    constructor(public selectedPerson: Person) {}
+  }
+
+  export class GenerateCharts {
+    static readonly type = '[People] Generate Charts';
+    constructor() {}
   }
 
   export class GenerateRandom {

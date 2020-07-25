@@ -1,6 +1,7 @@
 
 import { Injectable } from '@angular/core';
 import { State, Action, StateContext, Selector } from '@ngxs/store';
+import { patch, append } from '@ngxs/store/operators';
 
 import { PeopleActions } from './people.actions';
 import { PeopleStateModel } from './people.state-model';
@@ -43,53 +44,65 @@ export class PeopleState {
 
   @Action(PeopleActions.Add)
   addPerson(
-    ctx: StateContext<PeopleStateModel>,
-    action: PeopleActions.Add
+    { setState, dispatch }: StateContext<PeopleStateModel>,
+    { person }: PeopleActions.Add
   ) {
-    const state = ctx.getState();
-    const peopleState = state.people || [];
-    const people = peopleState.concat(action.person);
+    setState(
+      patch({
+        people: append([person]),
+      })
+    );
 
-    ctx.patchState({
-      people,
-      agePieChart: this.chartGenerator.generateAgePieChart(people),
-      genderPieChart: this.chartGenerator.generateGenderPieChart(people)
-    });
+    return dispatch(new PeopleActions.GenerateCharts());
   }
 
   @Action(PeopleActions.AddMany)
   addPeople(
-    ctx: StateContext<PeopleStateModel>,
-    action: PeopleActions.AddMany
+    { setState, dispatch }: StateContext<PeopleStateModel>,
+    { people }: PeopleActions.AddMany
   ) {
-    const state = ctx.getState();
-    const peopleState = state.people || [];
-    const people = peopleState.concat(action.people);
+    setState(
+      patch({
+        people: append(people),
+      })
+    );
 
-    ctx.patchState({
-      people,
-      agePieChart: this.chartGenerator.generateAgePieChart(people),
-      genderPieChart: this.chartGenerator.generateGenderPieChart(people)
-    });
+    return dispatch(new PeopleActions.GenerateCharts());
   }
 
   @Action(PeopleActions.Select)
   selectPerson(
-    ctx: StateContext<PeopleStateModel>,
-    action: PeopleActions.Select
+    { setState }: StateContext<PeopleStateModel>,
+    { selectedPerson }: PeopleActions.Select
   ) {
-    ctx.patchState({
-      selectedPerson: action.person
-    });
+    setState(
+      patch({
+        selectedPerson,
+      })
+    );
+  }
+
+  @Action(PeopleActions.GenerateCharts)
+  generateCharts(
+    { getState, setState }: StateContext<PeopleStateModel>,
+  ) {
+    const people = getState().people || [];
+
+    setState(
+      patch({
+        agePieChart: this.chartGenerator.generateAgePieChart(people),
+        genderPieChart: this.chartGenerator.generateGenderPieChart(people)
+      })
+    );
   }
 
   @Action(PeopleActions.GenerateRandom)
   generateRandomPeople(
-    ctx: StateContext<PeopleStateModel>,
-    action: PeopleActions.GenerateRandom
+    { dispatch }: StateContext<PeopleStateModel>,
+    { quantity }: PeopleActions.GenerateRandom
   ) {
-    const randomPeople = this.randomGenerator.generateMany(action.quantity);
+    const randomPeople = this.randomGenerator.generateMany(quantity);
 
-    return ctx.dispatch(new PeopleActions.AddMany(randomPeople));
+    return dispatch(new PeopleActions.AddMany(randomPeople));
   }
 }
