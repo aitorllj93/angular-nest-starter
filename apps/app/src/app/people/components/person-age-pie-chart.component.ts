@@ -15,15 +15,13 @@ import { Subject } from 'rxjs';
         </div>
 
         <div style="height: 200px" *ngIf="ageChartResults$ | async as ageChartResults; else skeleton">
-          <ngx-charts-pie-chart
+          <ngx-charts-advanced-pie-chart
             [results]="ageChartResults"
-            [legend]="true"
-            [labels]="true">
-          </ngx-charts-pie-chart>
+            [scheme]="'horizon'">
+          </ngx-charts-advanced-pie-chart>
         </div>
 
       </div>
-
     </mdc-card>
 
     <ng-template #skeleton>

@@ -15,11 +15,10 @@ import { Subject } from 'rxjs';
         </div>
 
         <div style="height: 200px" *ngIf="genderChartResults$ | async as genderChartResults; else skeleton">
-          <ngx-charts-pie-chart
+          <ngx-charts-advanced-pie-chart
             [results]="genderChartResults"
-            [legend]="true"
-            [labels]="true">
-          </ngx-charts-pie-chart>
+            [scheme]="'horizon'">
+          </ngx-charts-advanced-pie-chart>
         </div>
 
       </div>
