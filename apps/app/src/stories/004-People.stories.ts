@@ -5,6 +5,7 @@ import { MdcIconRegistry } from '@angular-mdc/web';
 import { linkTo } from '@storybook/addon-links';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxsModule } from '@ngxs/store';
+import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
 
 export default {
   title: 'Feature - People',
@@ -15,6 +16,7 @@ export default {
         NgxsModule.forRoot([], {
           developmentMode: true
         }),
+        NgxsReduxDevtoolsPluginModule.forRoot(),
         PeopleModule
       ],
       providers: [
