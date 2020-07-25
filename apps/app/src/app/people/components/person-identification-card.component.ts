@@ -13,7 +13,7 @@ import { RandomPersonGeneratorService } from '../services/random-person-generato
           Identification
         </div>
 
-        <div fxLayout="row" fxFlexFill>
+        <div fxLayout="row" fxFlexFill *ngIf="person$ | async as person; else skeleton">
           <div [fxFlex]="'140px'">
             <img [src]="person.image" width="140px" style="border-radius: 20px;"/>
           </div>
@@ -58,13 +58,17 @@ import { RandomPersonGeneratorService } from '../services/random-person-generato
         </div>
       </div>
     </mdc-card>
+
+    <ng-template #skeleton>
+      <ngx-skeleton-loader count="4"></ngx-skeleton-loader>
+    </ng-template>
   `
 })
 export class PersonIdentificationCardComponent implements OnInit {
 
   @Input() showHeader = true;
 
-  @Input() person = this.randomPersonGenerator.generate();
+  @Input() person$ = this.randomPersonGenerator.generate();
 
   constructor(
     private randomPersonGenerator: RandomPersonGeneratorService

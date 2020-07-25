@@ -60,6 +60,7 @@
     "core-js": "^3.6.5",
     "date-fns": "^2.14.0",
     "jsonwebtoken": "^8.5.1",
+    "ngx-skeleton-loader": "^2.2.1",
     "ngx-swiper-wrapper": "^9.0.1",
     "ngx-tippy-wrapper": "^2.0.0",
     "ngx-toastr": "^12.1.0",

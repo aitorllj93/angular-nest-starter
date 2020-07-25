@@ -11,12 +11,16 @@ import { RandomPersonGeneratorService } from '../services/random-person-generato
           Notes
         </div>
 
-        <div mdcBody1>
+        <div mdcBody1 *ngIf="person$ | async as person; else skeleton">
           {{ person.notes }}
         </div>
 
       </div>
     </mdc-card>
+
+    <ng-template #skeleton>
+      <ngx-skeleton-loader count="5"></ngx-skeleton-loader>
+    </ng-template>
   `
 })
 
@@ -24,7 +28,7 @@ export class PersonNotesCardComponent implements OnInit {
 
   @Input() showHeader = true;
 
-  @Input() person = this.randomPersonGenerator.generate();
+  @Input() person$ = this.randomPersonGenerator.generate();
 
   constructor(
     private randomPersonGenerator: RandomPersonGeneratorService

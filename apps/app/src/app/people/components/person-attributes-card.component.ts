@@ -11,7 +11,7 @@ import { RandomPersonGeneratorService } from '../services/random-person-generato
           Attributes
         </div>
 
-        <div fxLayout="row" fxFlexFill>
+        <div fxLayout="row" fxFlexFill *ngIf="person$ | async as person; else skeleton">
           <div [fxFlex]="50" class="px-1">
 
             <p class="mt-0 person-attributes-text-strength">
@@ -59,6 +59,10 @@ import { RandomPersonGeneratorService } from '../services/random-person-generato
 
       </div>
     </mdc-card>
+
+    <ng-template #skeleton>
+      <ngx-skeleton-loader count="5"></ngx-skeleton-loader>
+    </ng-template>
   `
 })
 
@@ -66,7 +70,7 @@ export class PersonAttributesCardComponent implements OnInit {
 
   @Input() showHeader = true;
 
-  @Input() person = this.randomPersonGenerator.generate();
+  @Input() person$ = this.randomPersonGenerator.generate();
 
   constructor(
     private randomPersonGenerator: RandomPersonGeneratorService

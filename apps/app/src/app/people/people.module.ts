@@ -3,9 +3,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { MdcCardModule, MdcIconModule, MdcSliderModule, MdcButtonModule, MdcTypographyModule } from '@angular-mdc/web';
+import { MdcCardModule, MdcIconModule, MdcSliderModule, MdcButtonModule, MdcTypographyModule, MdcFabModule } from '@angular-mdc/web';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import { NgxTippyModule } from 'ngx-tippy-wrapper';
+import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 
 import { PersonIdentificationCardComponent } from './components/person-identification-card.component';
 import { PersonIdentificationListComponent } from './components/person-identification-list.component';
@@ -20,11 +21,13 @@ import { PersonNotesCardComponent } from './components/person-notes-card.compone
     FlexLayoutModule,
     MdcButtonModule,
     MdcCardModule,
+    MdcFabModule,
     MdcIconModule,
     MdcSliderModule,
     MdcTypographyModule,
     NgxDatatableModule,
     NgxTippyModule,
+    NgxSkeletonLoaderModule,
   ],
   exports: [
     PersonIdentificationCardComponent,

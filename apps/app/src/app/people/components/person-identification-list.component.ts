@@ -10,6 +10,7 @@ import { Person } from '../models/person';
   template: `
     <mdc-card>
       <ngx-datatable
+        *ngIf="people$ | async as people; else skeleton"
         class="material striped"
         [rows]="people"
         [columnMode]="columnMode"
@@ -57,12 +58,16 @@ import { Person } from '../models/person';
 
       </ngx-datatable>
   </mdc-card>
+
+  <ng-template #skeleton>
+    <ngx-skeleton-loader class="p-1" count="10"></ngx-skeleton-loader>
+  </ng-template>
   `
 })
 
 export class PersonIdentificationListComponent implements OnInit {
 
-  @Input() people = this.randomPersonGenerator.generateMany();
+  @Input() people$ = this.randomPersonGenerator.generateMany();
 
   @Output() rowClick = new EventEmitter<Person>();
 

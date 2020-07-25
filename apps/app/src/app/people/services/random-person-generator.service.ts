@@ -3,6 +3,8 @@ import { Injectable } from '@angular/core';
 
 import { Chance } from 'chance';
 import { Person, PersonAttributes, PersonSkill } from '../models/person';
+import { Observable, of, merge, forkJoin } from 'rxjs';
+import { delay } from 'rxjs/operators';
 
 const chance = new Chance();
 
@@ -10,7 +12,7 @@ const chance = new Chance();
 export class RandomPersonGeneratorService {
   constructor() { }
 
-  generate() {
+  generate(): Observable<Person> {
     const gender = chance.gender().toLowerCase() as 'male' | 'female';
     const givenName = chance.first({ gender });
     const familyName = chance.last();
@@ -35,7 +37,7 @@ export class RandomPersonGeneratorService {
     );
     const notes = chance.paragraph();
 
-    return new Person({
+    return of(new Person({
       identifier,
       givenName,
       familyName,
@@ -46,12 +48,14 @@ export class RandomPersonGeneratorService {
       attributes,
       skills,
       notes
-    })
+    })).pipe(delay(3000));
   }
 
   generateMany(quantity = 20) {
-    return Array(quantity).fill(null)
-      .map(() => this.generate());
+    const data$ = Array(quantity).fill(null)
+    .map(() => this.generate());
+
+    return forkJoin(data$);
   }
 
 }

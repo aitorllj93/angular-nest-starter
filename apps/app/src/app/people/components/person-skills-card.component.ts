@@ -12,7 +12,7 @@ import { RandomPersonGeneratorService } from '../services/random-person-generato
           Skills
         </div>
 
-        <div fxLayout="row wrap" fxFlexFill>
+        <div fxLayout="row wrap" fxFlexFill *ngIf="person$ | async as person; else skeleton">
           <ng-container *ngFor="let skill of person.skills">
             <div [fxFlex]="25" class="p-1" [ngxTippy]="tooltip"
                 [tippyProps]="{
@@ -42,6 +42,10 @@ import { RandomPersonGeneratorService } from '../services/random-person-generato
         </div>
       </div>
     </mdc-card>
+
+    <ng-template #skeleton>
+      <ngx-skeleton-loader count="5"></ngx-skeleton-loader>
+    </ng-template>
   `
 })
 
@@ -49,7 +53,7 @@ export class PersonSkillsCardComponent implements OnInit {
 
   @Input() showHeader = true;
 
-  @Input() person = this.randomPersonGenerator.generate();
+  @Input() person$ = this.randomPersonGenerator.generate();
 
   constructor(
     private randomPersonGenerator: RandomPersonGeneratorService

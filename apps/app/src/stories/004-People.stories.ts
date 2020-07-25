@@ -27,7 +27,7 @@ export const PersonIdentificationList = () => ({
     </div>
   `,
   props: {
-    rowClick: linkTo('Feature - People', 'Person Identification Card')
+    rowClick: linkTo('Feature - People', 'Person Details')
   }
 })
 
