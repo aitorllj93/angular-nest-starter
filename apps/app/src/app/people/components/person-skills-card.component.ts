@@ -4,6 +4,7 @@ import { Select } from '@ngxs/store';
 import { Observable } from 'rxjs';
 
 import { Person } from '../models/person';
+import { PeopleState } from '../state/people.state';
 
 @Component({
   selector: 'app-person-skills-card',
@@ -56,5 +57,5 @@ export class PersonSkillsCardComponent {
 
   @Input() showHeader = true;
 
-  @Select(state => state.peopleStore.selectedPerson) person$: Observable<Person>;
+  @Select(PeopleState.selectedPerson) person$: Observable<Person>;
 }

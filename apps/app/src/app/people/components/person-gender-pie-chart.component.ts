@@ -2,6 +2,7 @@
 import { Component, Input } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Select } from '@ngxs/store';
+import { PeopleState } from '../state/people.state';
 
 @Component({
   selector: 'app-person-gender-pie-chart',
@@ -33,5 +34,5 @@ export class PersonGenderPieChartComponent {
 
   @Input() showHeader = true;
 
-  @Select(state => state.peopleStore.genderPieChart) results$: Observable<any>;
+  @Select(PeopleState.genderPieChart) results$: Observable<any>;
 }

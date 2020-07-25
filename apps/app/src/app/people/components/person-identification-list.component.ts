@@ -1,10 +1,11 @@
 
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 import { ColumnMode } from '@swimlane/ngx-datatable';
 import { Select } from '@ngxs/store';
 import { Observable } from 'rxjs';
 
 import { Person } from '../models/person';
+import { PeopleState } from '../state/people.state';
 
 @Component({
   selector: 'app-person-identification-list',
@@ -68,7 +69,7 @@ import { Person } from '../models/person';
 
 export class PersonIdentificationListComponent {
 
-  @Select(state => state.peopleStore.people) people$: Observable<Person[]>;
+  @Select(PeopleState.people) people$: Observable<Person[]>;
 
   @Output() rowClick = new EventEmitter<Person>();
 

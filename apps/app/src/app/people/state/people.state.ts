@@ -1,6 +1,6 @@
 
 import { Injectable } from '@angular/core';
-import { State, Action, StateContext } from '@ngxs/store';
+import { State, Action, StateContext, Selector } from '@ngxs/store';
 
 import { PeopleActions } from './people.actions';
 import { PeopleStateModel } from './people.state-model';
@@ -15,6 +15,26 @@ import { PersonChartGeneratorService } from '../services/person-chart-generator.
 })
 @Injectable()
 export class PeopleState {
+
+  @Selector()
+  static people(state: PeopleStateModel) {
+    return state.people;
+  }
+
+  @Selector()
+  static selectedPerson(state: PeopleStateModel) {
+    return state.selectedPerson;
+  }
+
+  @Selector()
+  static agePieChart(state: PeopleStateModel) {
+    return state.agePieChart;
+  }
+
+  @Selector()
+  static genderPieChart(state: PeopleStateModel) {
+    return state.genderPieChart;
+  }
 
   constructor(
     private randomGenerator: RandomPersonGeneratorService,
