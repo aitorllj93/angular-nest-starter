@@ -14,9 +14,9 @@ import { Subject } from 'rxjs';
           People by Age
         </div>
 
-        <div style="height: 200px" *ngIf="ageChartResults$ | async as ageChartResults; else skeleton">
+        <div style="height: 200px" *ngIf="results$ | async as results; else skeleton">
           <ngx-charts-advanced-pie-chart
-            [results]="ageChartResults"
+            [results]="results"
             [scheme]="'horizon'">
           </ngx-charts-advanced-pie-chart>
         </div>
@@ -36,7 +36,7 @@ export class PersonAgePieChartComponent implements OnInit {
 
   @Input() people$ = this.randomPersonGenerator.generateMany();
 
-  @Input() ageChartResults$ = new Subject<any>();
+  @Input() results$ = new Subject<any>();
 
   constructor(
     private randomPersonGenerator: RandomPersonGeneratorService
@@ -45,7 +45,7 @@ export class PersonAgePieChartComponent implements OnInit {
   ngOnInit() {
     this.people$.subscribe(
       (people) => {
-        this.ageChartResults$.next([
+        this.results$.next([
           {
             name: '< 18',
             value: people.filter(person => person.age < 18).length
@@ -63,8 +63,8 @@ export class PersonAgePieChartComponent implements OnInit {
             value: people.filter(person => person.age >= 45 && person.age < 65).length
           },
           {
-            name: '> 65',
-            value: people.filter(person => person.age > 65).length
+            name: '>= 65',
+            value: people.filter(person => person.age >= 65).length
           },
         ]);
       }

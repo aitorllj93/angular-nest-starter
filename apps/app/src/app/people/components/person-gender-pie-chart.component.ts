@@ -14,9 +14,9 @@ import { Subject } from 'rxjs';
           People by Gender
         </div>
 
-        <div style="height: 200px" *ngIf="genderChartResults$ | async as genderChartResults; else skeleton">
+        <div style="height: 200px" *ngIf="results$ | async as results; else skeleton">
           <ngx-charts-advanced-pie-chart
-            [results]="genderChartResults"
+            [results]="results"
             [scheme]="'horizon'">
           </ngx-charts-advanced-pie-chart>
         </div>
@@ -36,7 +36,7 @@ export class PersonGenderPieChartComponent implements OnInit {
 
   @Input() people$ = this.randomPersonGenerator.generateMany();
 
-  @Input() genderChartResults$ = new Subject<any>();
+  @Input() results$ = new Subject<any>();
 
   constructor(
     private randomPersonGenerator: RandomPersonGeneratorService
@@ -45,7 +45,7 @@ export class PersonGenderPieChartComponent implements OnInit {
   ngOnInit() {
     this.people$.subscribe(
       (people) => {
-        this.genderChartResults$.next([
+        this.results$.next([
           {
             name: 'Female',
             value: people.filter(person => person.gender === 'female').length

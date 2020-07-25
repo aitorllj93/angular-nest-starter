@@ -51,7 +51,7 @@ export class RandomPersonGeneratorService {
     })).pipe(delay(3000));
   }
 
-  generateMany(quantity = 20) {
+  generateMany(quantity = 100) {
     const data$ = Array(quantity).fill(null)
     .map(() => this.generate());
 
