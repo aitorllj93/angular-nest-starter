@@ -35,7 +35,7 @@ import { Subject, BehaviorSubject } from 'rxjs';
 
         <mdc-card style="height: 300px; padding-top: 20px;">
           <ngx-charts-area-chart-stacked
-            [scheme]="colorScheme"
+            [scheme]="'horizon'"
             [legend]="legend"
             [showXAxisLabel]="showXAxisLabel"
             [showYAxisLabel]="showYAxisLabel"
@@ -149,10 +149,6 @@ export class HomeComponent implements OnInit {
   xAxisLabel = 'Year';
   yAxisLabel = 'Population';
   timeline = true;
-
-  colorScheme = {
-    domain: ['#5AA454', '#E44D25', '#CFC0BB', '#7aa3e5', '#a8385d', '#aae3f5']
-  };
 
   // constructor(private http: HttpClient) {}
 

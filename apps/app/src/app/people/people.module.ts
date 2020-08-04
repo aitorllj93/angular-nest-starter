@@ -67,7 +67,7 @@ import { withLatestFrom } from 'rxjs/operators';
 })
 export class PeopleModule {
 
-  @Select(state => state.peopleStore.people) people$: Observable<any>;
+  @Select(PeopleState.people) people$: Observable<any>;
 
   constructor(
     private store: Store
